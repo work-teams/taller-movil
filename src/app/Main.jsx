@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './home/Home';
 import Login from './login/Login';
 import Header from './components/Header';
+import PanelSuperior from './components/PanelSuperior';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,7 +12,7 @@ const Main = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="PanelSuperior">
         <Stack.Screen
           name="Login"
           component={Login}
@@ -33,6 +34,15 @@ const Main = () => {
             headerShown: false
           }}
         />
+
+        <Stack.Screen
+          name="PanelSuperior"
+          component={PanelSuperior}
+          options={{
+            headerShown: false
+          }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
