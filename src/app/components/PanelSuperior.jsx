@@ -1,82 +1,82 @@
+import { StatusBar } from "expo-status-bar";
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { TextInput } from '@react-native-material/core';
+import { View, Text, StyleSheet, Button, Alert, TextInput } from 'react-native';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-export default class PanelSuperior extends Component {
+export default class App extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar style="auto" />
-                <View style={styles.container}>
+                <View style={styles.container2}>
                     <Text style={styles.text}>Locación</Text>
+                    <Icon name="google-maps" size={18} position="absolute" left={27} top={93} color='#FFF' />
+                    <Text style={styles.titulo}>Lima, PE</Text>
+                    <Icon name="chevron-down" size={18} position="absolute" left={129} top={93} color='#FFF' />
 
-                    <View style={styles.containerGPS}>
-                        <Icon name="google-maps" size={18} />
-                        <Text style={styles.textGPS}>Lima, PE</Text>
-                        <Icon name="chevron-down" size={18} />
-                    </View>
-
-                    <View style={styles.containerBusqueda}>
-                        <Icon name="magnify" size={18} />
-                        <TextInput
-                            style={styles.inputBusqueda}
-                            placeholder='Buscar Hotel, Vuelos etc...'
-                        >
-                        </TextInput>
-                        <Icon name="tune" size={18} />
-                    </View>
+                    <Icon name="magnify" size={18} position="absolute" left={37} top={145} color='#FFF' />
+                    <TextInput
+                        style={styles.input}
+                        // onChangeText={onChangeUser}
+                        // value={user}
+                        placeholder="Buscar Hotel, Vuelos etc.."
+                    />
                 </View>
-
             </View>
-
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        //position: 'absolute',
-        width: '100%',
-        height: 200,
-        left: 0,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFF',
+    },
+    container2: {
+        position: 'absolute',
         top: 0,
-        // flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    containerGPS: {
+        left: 0,
+        right: 0,
+        height: 200,
         flexDirection: 'row',
-        //justifyContent: 'flex-start',
-        backgroundColor: '#FFF'
-    },
-    containerBusqueda: {
-        flexDirection: 'row',
-        //justifyContent: 'flex-start',
-        backgroundColor: 'skyblue'
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#1FC9C2',
     },
     text: {
+        position: "absolute",
+        width: 64,
+        height: 18,
+        left: 16,
+        top: 47,
+        fontWeight: 400,
         fontSize: 15,
-        textAlign: 'left',
-        //margin: 10,
+        lineHeight: 18,
+        textAlign: 'center',
+        margin: 10,
+        color: '#FFF',
     },
-    textGPS: {
+    titulo: {
+        position: "absolute",
+        width: 72,
+        height: 21,
+        left: 48,
+        top: 91,
+
         fontSize: 17.5,
-        textAlign: 'left',
-        //margin: 10,
+        lineHeight: 21,
+        color: '#FFF',
     },
-    inputBusqueda: {
-        width: 120,
-        //height: 1,
-        fontSize: 5,
-        //font: 10
-        margin: 0,
-        // borderWidth: 1,
-        // borderColor: '#dcdcdc',
-        padding: 0,
-        marginBottom: 0,
-        // borderRadius: 10
+    input: {
+        position: "absolute",
+        width: 270,
+        height: 43,
+        left: 67,
+        top: 132,
+        fontSize: 14,
+        color: '#FFF',
+        //backgroundColor: "#fff",
+        //lineHeight: 21,
     },
 });
