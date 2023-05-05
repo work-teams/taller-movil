@@ -3,24 +3,30 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Alert, TextInput } from 'react-native';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-export default class App extends Component {
+export default class PanelSuperior extends Component {
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.container2}>
-                    <Text style={styles.text}>Locación</Text>
-                    <Icon name="google-maps" size={18} position="absolute" left={27} top={93} color='#FFF' />
-                    <Text style={styles.titulo}>Lima, PE</Text>
-                    <Icon name="chevron-down" size={18} position="absolute" left={129} top={93} color='#FFF' />
 
-                    <Icon name="magnify" size={18} position="absolute" left={37} top={145} color='#FFF' />
-                    <TextInput
-                        style={styles.input}
-                        // onChangeText={onChangeUser}
-                        // value={user}
-                        placeholder="Buscar Hotel, Vuelos etc.."
-                    />
+            <View style={styles.container}>
+                <Text style={styles.text}>Locación</Text>
+
+                <View style={styles.box1}>
+                    <Icon name="google-maps" size={25} color='#FFF' />
+                    <Text style={styles.titulo}>Lima, PE</Text>
+                    <Icon name="chevron-down" size={18} color='#FFF' />
                 </View>
+
+                <View style={styles.box2}>
+                    <View style={styles.boxSearch}>
+                        <Icon name="magnify" size={18} color='#1FC9C2' />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Buscar Hotel, Vuelos etc.."
+                        />
+                    </View>
+                    <Icon name="tune" size={25} color='#FFF' />
+                </View>
+
             </View>
         );
     }
@@ -28,55 +34,53 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FFF',
-    },
-    container2: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
+        position: "relative",
+        width: "100%",
         height: 200,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center', // vertical
+        borderBottomLeftRadius: 40,
         backgroundColor: '#1FC9C2',
+        padding: 24,
     },
     text: {
-        position: "absolute",
-        width: 64,
-        height: 18,
-        left: 16,
-        top: 47,
-        fontWeight: 400,
         fontSize: 15,
+        fontStyle: "normal",
+        fontWeight: 400,
         lineHeight: 18,
-        textAlign: 'center',
-        margin: 10,
+        marginTop: 60,
+        marginBottom: 6,
         color: '#FFF',
+    },
+    box1: {
+        flexDirection: 'row',
+        alignItems: 'baseline', // horizontal
+        marginBottom: 20,
     },
     titulo: {
-        position: "absolute",
-        width: 72,
-        height: 21,
-        left: 48,
-        top: 91,
-
         fontSize: 17.5,
-        lineHeight: 21,
+        fontStyle: "normal",
+        fontWeight: 600,
+        lineHeight: 21.18,
         color: '#FFF',
     },
+    box2: {
+        width: 315,
+        flexDirection: 'row',
+        justifyContent: 'space-between', // horizontal
+        marginBottom: 25,
+        // backgroundColor: 'blue',
+    },
+    boxSearch: {
+        position: "relative",
+        flexDirection: 'row',
+        alignItems: 'center', // horizontal
+        backgroundColor: '#FFF',
+        borderRadius: 10,
+        width: 250,
+    },
     input: {
-        position: "absolute",
-        width: 270,
-        height: 43,
-        left: 67,
-        top: 132,
-        fontSize: 14,
-        color: '#FFF',
-        //backgroundColor: "#fff",
-        //lineHeight: 21,
+        width: 250,
+        borderRadius: 10,
+        backgroundColor: "#fff",
     },
 });
