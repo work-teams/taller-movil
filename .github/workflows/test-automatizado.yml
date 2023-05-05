@@ -1,0 +1,21 @@
+name: Pruebas Automatizadas
+
+on:
+  push:
+    branches:
+      - test-auto
+  pull_request:
+    branches:
+      - test-auto
+  workflow_dispatch:
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Instalar dependencias
+      run: npm install
+    - name: Ejecutar pruebas
+      run: npm test
+
