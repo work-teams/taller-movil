@@ -5,6 +5,7 @@ import Home from './home/Home';
 import Login from './login/Login';
 import Header from './components/Header';
 import PanelSuperior from './components/PanelSuperior';
+import EnlacesTransporte from './components/EnlacesTransporte';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +13,7 @@ const Main = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="PanelSuperior">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Login"
           component={Login}
@@ -38,6 +39,14 @@ const Main = () => {
         <Stack.Screen
           name="PanelSuperior"
           component={PanelSuperior}
+          options={{
+            headerShown: false
+          }}
+        />
+
+        <Stack.Screen
+          name="EnlacesTransporte"
+          component={EnlacesTransporte}
           options={{
             headerShown: false
           }}

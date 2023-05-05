@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Alert, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 export default class PanelSuperior extends Component {
@@ -8,6 +8,9 @@ export default class PanelSuperior extends Component {
         return (
 
             <View style={styles.container}>
+
+                <StatusBar style="auto" />
+                
                 <Text style={styles.text}>Locación</Text>
 
                 <View style={styles.box1}>
