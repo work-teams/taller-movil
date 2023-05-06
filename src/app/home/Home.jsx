@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import PanelSuperior from '../components/PanelSuperior';
 import EnlacesTransporte from '../components/EnlacesTransporte';
 import BannerVertical from '../components/BannerVertical';
+import MenuInferior from '../components/MenuInferior';
 
 export default class App extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class App extends Component {
           <BannerVertical />
           <BannerVertical />
         </View>
+        <MenuInferior />
       </View>
     );
   }

@@ -7,6 +7,7 @@ import Header from './components/Header';
 import PanelSuperior from './components/PanelSuperior';
 import EnlacesTransporte from './components/EnlacesTransporte';
 import BannerVertical from './components/BannerVertical';
+import MenuInferior from './components/MenuInferior';
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,14 @@ const Main = () => {
         <Stack.Screen
           name="BannerVertical"
           component={BannerVertical}
+          options={{
+            headerShown: false
+          }}
+        />
+
+        <Stack.Screen
+          name="MenuInferior"
+          component={MenuInferior}
           options={{
             headerShown: false
           }}
