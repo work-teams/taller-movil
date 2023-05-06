@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './home/Home';
 import Login from './login/Login';
 import Header from './components/Header';
+import NearbyTouristPlaces from './nearbyTouristPlaces/NearbyTouristPlaces';
+import DescriptionTouristPlace from './descriptionTouristPlace/DescriptionTouristPlace';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +31,20 @@ const Main = () => {
         <Stack.Screen
           name="Header"
           component={Header}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="NearbyTouristPlaces"
+          component={NearbyTouristPlaces}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="DescriptionTouristPlace"
+          component={DescriptionTouristPlace}
           options={{
             headerShown: false
           }}

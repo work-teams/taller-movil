@@ -21,6 +21,7 @@ const Home = ({ navigation }) => {
       <Header title='Principal' onBack={onBack}></Header>
       <View style ={styles.location}>
         <Text>Ubicación: <Icon name="google-maps" size={15}/>Lima, PE <Icon name="arrow-down-drop-circle-outline" size={14}/></Text>
+        <Button title="Lugares cercanos" onPress={() => navigation.navigate('NearbyTouristPlaces')}></Button>
       </View>
     </View>
   );
