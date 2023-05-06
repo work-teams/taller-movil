@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-// import Home from '../components/PanelSuperior';
+import Home from '../components/PanelSuperior';
 import PanelSuperior from '../components/PanelSuperior';
 import EnlacesTransporte from '../components/EnlacesTransporte';
 import BannerVertical from '../components/BannerVertical';
@@ -15,10 +15,20 @@ export default class App extends Component {
 
         <EnlacesTransporte />
 
+        <View style={styles.containerTexto}>
+          <Text style={styles.textTitle}>Cerca de mi</Text>
+          <Text style={styles.text}>Ver todo</Text>
+        </View>
+
         <View style={styles.container}>
           <View style={styles.containerVertical}>
             <BannerVertical />
             <BannerVertical />
+          </View>
+
+          <View style={styles.containerTexto}>
+            <Text style={styles.textTitle}>Popular para mi</Text>
+            <Text style={styles.text}>Ver todo</Text>
           </View>
 
           <View style={styles.containerHorizontal}>
@@ -40,7 +50,14 @@ const styles = StyleSheet.create({
   container: {
     height: '50%',
     alignItems: 'center',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+  },
+  containerTexto: {
+    width: '100%',
+    justifyContent: 'space-between',
+    paddingLeft: 17,
+    paddingRight: 17,
+    flexDirection: 'row',
   },
   containerVertical: {
     width: '100%',
@@ -51,8 +68,16 @@ const styles = StyleSheet.create({
   containerHorizontal: {
   },
   text: {
-    // fontSize: 20,
-    // textAlign: 'center',
-    // margin: 10,
+    fontSize: 14,
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: 17,
+    color: '#F88E56',
+  },
+  textTitle: {
+    fontSize: 20,
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: 24,
   },
 });
