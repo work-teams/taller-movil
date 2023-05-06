@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import PanelSuperior from '../components/PanelSuperior';
 import EnlacesTransporte from '../components/EnlacesTransporte';
 import BannerVertical from '../components/BannerVertical';
+import BannerHorizontal from '../components/BannerHorizontal';
 import MenuInferior from '../components/MenuInferior';
 
 export default class App extends Component {
@@ -11,11 +12,20 @@ export default class App extends Component {
     return (
       <View style={styles.body}>
         <PanelSuperior />
+
         <EnlacesTransporte />
+
         <View style={styles.container}>
-          <BannerVertical />
-          <BannerVertical />
+          <View style={styles.containerVertical}>
+            <BannerVertical />
+            <BannerVertical />
+          </View>
+
+          <View style={styles.containerHorizontal}>
+            <BannerHorizontal />
+          </View>
         </View>
+
         <MenuInferior />
       </View>
     );
@@ -25,16 +35,20 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
     backgroundColor: '#FFF',
   },
   container: {
-    flexDirection: 'row',
-    // flex: 1,
-    justifyContent: 'space-around',
+    height: '50%',
     alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
+    justifyContent: 'space-evenly'
+  },
+  containerVertical: {
+    width: '100%',
+    height: '58%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  containerHorizontal: {
   },
   text: {
     // fontSize: 20,
