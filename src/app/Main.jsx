@@ -6,6 +6,7 @@ import Login from './login/Login';
 import Header from './components/Header';
 import PanelSuperior from './components/PanelSuperior';
 import EnlacesTransporte from './components/EnlacesTransporte';
+import BannerVertical from './components/BannerVertical';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,14 @@ const Main = () => {
         <Stack.Screen
           name="EnlacesTransporte"
           component={EnlacesTransporte}
+          options={{
+            headerShown: false
+          }}
+        />
+
+        <Stack.Screen
+          name="BannerVertical"
+          component={BannerVertical}
           options={{
             headerShown: false
           }}
