@@ -5,7 +5,7 @@ import Home from './home/Home';
 import Login from './login/Login';
 import Header from './components/Header';
 import NearbyTouristPlaces from './nearbyTouristPlaces/NearbyTouristPlaces';
-import DescriptionTouristPlace from './descriptionTouristPlace/DescriptionTouristPlace';
+import Activities from './activities/Activities';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,8 +43,8 @@ const Main = () => {
           }}
         />
         <Stack.Screen
-          name="DescriptionTouristPlace"
-          component={DescriptionTouristPlace}
+          name="Activities"
+          component={Activities}
           options={{
             headerShown: false
           }}
