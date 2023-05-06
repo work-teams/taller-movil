@@ -1,19 +1,19 @@
-name: test-auto
+name: test-automatico
 
 on:
   push:
     branches:
-      - test-auto
+      - main
   pull_request:
     branches:
-      - test-auto
+      - main
 
 jobs:
   pruebas:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Instalar dependencias
+      - name: instalar-dependencias
         run: npm install
-      - name: Ejecutar pruebas
+      - name: ejecutar-pruebas
         run: npm test
