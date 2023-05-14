@@ -55,3 +55,36 @@ export function getPlacesByProvider(providerId) {
   });
   return placesArray;
 }
+
+// interactuar con proveedores
+export function getProviderName(providerID) {
+  let name;
+  providers.map(data => {
+    if (data.providerId == providerID) {
+      name = data.name;
+    }
+  });
+  return name;
+}
+
+export function getProviderUrl(providerID) {
+  let url;
+  providers.map(data => {
+    if (data.providerId == providerID) {
+      url = data.photo_url;
+    }
+  });
+  return url;
+}
+
+export function getAllProviders(idArray) {
+  const providersArray = [];
+  idArray.map(index => {
+    providers.map(data => {
+      if (data.providerId == index[0]) {
+        providersArray.push([data, index[1]]);
+      }
+    });
+  });
+  return providersArray;
+}
