@@ -22,3 +22,36 @@ export function getCategoryById(categoryId) {
   });
   return category;
 }
+
+// interactuar con lugares
+export function getPlaces(categoryId) {
+  const placesArray = [];
+  places.map(data => {
+    if (data.categoryId == categoryId) {
+      placesArray.push(data);
+    }
+  });
+  return placesArray;
+}
+
+export function getNumberOfPlaces(categoryId) {
+  let count = 0;
+  places.map(data => {
+    if (data.categoryId == categoryId) {
+      count++;
+    }
+  });
+  return count;
+}
+
+export function getPlacesByProvider(providerId) {
+  const placesArray = [];
+  places.map(data => {
+    data.providers.map(index => {
+      if (index[0] == providerId) {
+        placesArray.push(data);
+      }
+    });
+  });
+  return placesArray;
+}
