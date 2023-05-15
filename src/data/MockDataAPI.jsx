@@ -88,3 +88,45 @@ export function getAllProviders(idArray) {
   });
   return providersArray;
 }
+
+// funciones de busqueda
+export function getPlacesByCategoryName(categoryName) {
+  const nameUpper = categoryName.toUpperCase();
+  const placesArray = [];
+  categories.map(data => {
+    if (data.name.toUpperCase().includes(nameUpper)) {
+      const places = getPlaces(data.id);
+      places.map(item => {
+        placesArray.push(item);
+      });
+    }
+  });
+  return placesArray;
+}
+
+export function getPlacesByPlaceName(placeName) {
+  const nameUpper = placeName.toUpperCase();
+  const placesArray = [];
+  places.map(data => {
+    if (data.title.toUpperCase().includes(nameUpper)) {
+      placesArray.push(data);
+    }
+  });
+  return placesArray;
+}
+
+export function getPlacesByProviderName(providerName) {
+  const nameUpper = providerName.toUpperCase();
+  const placesArray = [];
+  providers.map(data => {
+    if (data.name.toUpperCase().includes(nameUpper)) {
+      const places = getPlacesByProvider(data.providerId);
+      const unique = [...new Set(places)];
+      unique.map(item => {
+        placesArray.push(item);
+      });
+    }
+  });
+  const uniqueArray = [...new Set(placesArray)];
+  return uniqueArray;
+}
