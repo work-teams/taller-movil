@@ -6,8 +6,8 @@ import styles from './styles';
 export default function ViewProvidersButton (props) {
     return (
       <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={props.onPress}>
-        <View >
-          <Text>Ver Servicios</Text>
+        <View style={styles.container}>
+          <Text style={styles.text}>Ver Servicios</Text>
         </View>
       </TouchableHighlight>
     );
