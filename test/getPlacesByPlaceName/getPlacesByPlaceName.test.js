@@ -1,4 +1,4 @@
-import { getPlacesByPlaceName } from '../../src/data/MockDataAPI';
+import { getPlacesByPlaceName } from './getPlacesByPlaceName';
 
 describe('getPlacesByPlaceName', () => {
     it('should return an array with Ciudadela de Caral when given the name Ciudadela de Caral', () => {

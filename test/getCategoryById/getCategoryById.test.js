@@ -1,4 +1,4 @@
-import { getCategoryById } from '../../src/data/MockDataAPI';
+import { getCategoryById } from './getCategoryById';
 import { categories } from '../../src/data/dataArrays';
 
 describe('getCategoryById', () => {

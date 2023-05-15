@@ -1,4 +1,4 @@
-import { getNumberOfPlaces } from '../../src/data/MockDataAPI';
+import { getNumberOfPlaces } from './getNumberOfPlaces';
 
 describe('getNumberOfPlaces function', () => {
     it('should return the number of places by category id', () => {

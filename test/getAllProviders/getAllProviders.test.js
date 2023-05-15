@@ -1,4 +1,4 @@
-const { getAllProviders } = require('../../src/data/MockDataAPI');
+import { getAllProviders } from './getAllProviders';
 
 describe('getAllProviders', () => {
     const providers = [
