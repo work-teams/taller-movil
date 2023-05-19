@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight, Pressable } from "react-native";
+import styles from "./styles";
 import MenuImage from "../../components/MenuImage/MenuImage";
 import { getCategoryName, getPlacesByPlaceName, getPlacesByCategoryName } from "../../data/MockDataAPI";
 import { TextInput } from "react-native-gesture-handler";
@@ -20,15 +21,16 @@ export default function SearchScreen(props) {
         />
       ),
       headerTitle: () => (
-        <View>
-          <Image source={require("../../../assets/icons/search.png")} />
+        <View style={styles.searchContainer}>
+          <Image style={styles.searchIcon} source={require("../../../assets/icons/search.png")} />
           <TextInput
+            style={styles.searchInput}
             onChangeText={handleSearch}
             placeholder="Buscar lugares turísticos"
             value={value}
           />
           <Pressable onPress={() => handleSearch("")}>
-          <Image source={require("../../../assets/icons/close.png")} />
+          <Image style={styles.closeIcon} source={require("../../../assets/icons/close.png")} />
           </Pressable>
         </View>
       ),
@@ -59,10 +61,10 @@ export default function SearchScreen(props) {
 
   const renderPlaces= ({ item }) => (
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressPlace(item)}>
-      <View>
-        <Image source={{ uri: item.photo_url }} />
-        <Text>{item.title}</Text>
-        <Text>{getCategoryName(item.categoryId)}</Text>
+      <View style={styles.container}>
+        <Image style={styles.photo} source={{ uri: item.photo_url }} />
+        <Text style={styles.title}  >{item.title}</Text>
+        <Text style={styles.category}>{getCategoryName(item.categoryId)}</Text>
       </View>
     </TouchableHighlight>
   );
