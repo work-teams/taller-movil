@@ -17,6 +17,14 @@ export default function DrawerContainer(props) {
             navigation.closeDrawer();
           }}
         />
+        <MenuButton
+          title="BUSCAR"
+          source={require("../../../assets/icons/search.png")}
+          onPress={() => {
+            navigation.navigate("Search");
+            navigation.closeDrawer();
+          }}
+        />
       </View>
     </View>
   );
