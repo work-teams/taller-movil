@@ -30,7 +30,7 @@ export default function SearchScreen(props) {
             value={value}
           />
           <Pressable onPress={() => handleSearch("")}>
-          <Image style={styles.closeIcon} source={require("../../../assets/icons/close.png")} />
+            <Image style={styles.closeIcon} source={require("../../../assets/icons/close.png")} />
           </Pressable>
         </View>
       ),
@@ -38,7 +38,7 @@ export default function SearchScreen(props) {
     });
   }, [value]);
 
-  useEffect(() => {}, [value]);
+  useEffect(() => { }, [value]);
 
   const handleSearch = (text) => {
     setValue(text);
@@ -59,7 +59,7 @@ export default function SearchScreen(props) {
     navigation.navigate("Place", { item });
   };
 
-  const renderPlaces= ({ item }) => (
+  const renderPlaces = ({ item }) => (
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressPlace(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
@@ -71,7 +71,7 @@ export default function SearchScreen(props) {
 
   return (
     <View>
-      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={data} renderItem={renderPlaces} keyExtractor={(item) => `${item.placeId}`}/>
+      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={data} renderItem={renderPlaces} keyExtractor={(item) => `${item.placeId}`} />
     </View>
   );
 }

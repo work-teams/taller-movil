@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { View, Text} from "react-native";
+import { View, Text } from "react-native";
 
 export default function PlaceServicesScreen(props) {
   const { navigation, route } = props;
