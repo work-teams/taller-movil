@@ -45,22 +45,22 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5
   },
-  searchContainer: { 
-    flexDirection: "row", 
-    alignItems: "center", 
-    backgroundColor: "#EDEDED", 
-    borderRadius: 10, 
+  searchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#EDEDED",
+    borderRadius: 10,
     width: 250,
     justifyContent: "space-around"
   },
   searchIcon: {
-    width: 25, 
-    height: 25, 
+    width: 25,
+    height: 25,
     tintColor: '#1FC9C2'
   },
   closeIcon: {
-    width: 27, 
-    height: 27, 
+    width: 27,
+    height: 27,
     tintColor: 'black'
   },
   searchInput: {

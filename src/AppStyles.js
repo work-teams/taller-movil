@@ -1,32 +1,28 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-// screen sizing
 const { width, height } = Dimensions.get('window');
-// orientation must fixed
 const SCREEN_WIDTH = width < height ? width : height;
 
 const placeNumColums = 1;
-// item size
-const RECIPE_ITEM_HEIGHT = 150;
-const RECIPE_ITEM_MARGIN = 20;
+const PLACE_ITEM_HEIGHT = 150;
+const PLACE_ITEM_MARGIN = 20;
 
-// 2 photos per width
 export const PlaceCard = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: RECIPE_ITEM_MARGIN,
+    marginLeft: PLACE_ITEM_MARGIN,
     marginTop: 20,
-    width: (SCREEN_WIDTH - (placeNumColums + 1) * RECIPE_ITEM_MARGIN) / placeNumColums,
-    height: RECIPE_ITEM_HEIGHT + 75,
+    width: (SCREEN_WIDTH - (placeNumColums + 1) * PLACE_ITEM_MARGIN) / placeNumColums,
+    height: PLACE_ITEM_HEIGHT + 75,
     borderColor: '#cccccc',
     borderWidth: 0.5,
     borderRadius: 15
   },
   photo: {
-    width: (SCREEN_WIDTH - (placeNumColums + 1) * RECIPE_ITEM_MARGIN) / placeNumColums,
-    height: RECIPE_ITEM_HEIGHT,
+    width: (SCREEN_WIDTH - (placeNumColums + 1) * PLACE_ITEM_MARGIN) / placeNumColums,
+    height: PLACE_ITEM_HEIGHT,
     borderRadius: 15,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0
