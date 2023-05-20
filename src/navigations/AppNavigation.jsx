@@ -5,6 +5,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import CategoriesScreen from '../screens/Categories/CategoriesScreen';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import SearchScreen from '../screens/Search/SearchScreen';
+import PlaceScreen from '../screens/Place/Place';
+import PlacesListScreen from '../screens/PlaceList/PlaceList';
+import PlaceServicesScreen from '../screens/PlaceServices/PlaceServices';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +26,9 @@ function MainNavigator() {
     >
       <Stack.Screen name='Search' component={SearchScreen}/>
       <Stack.Screen name='Categories' component={CategoriesScreen} options={{ title: 'Categorías'}}/>
+      <Stack.Screen name='Place' component={PlaceScreen}/>
+      <Stack.Screen name='PlacesList' component={PlacesListScreen} />
+      <Stack.Screen name='PlaceServices' component={PlaceServicesScreen} />
     </Stack.Navigator>
   );
 }
