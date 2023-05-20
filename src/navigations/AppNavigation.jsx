@@ -8,6 +8,7 @@ import SearchScreen from '../screens/Search/SearchScreen';
 import PlaceScreen from '../screens/Place/Place';
 import PlacesListScreen from '../screens/PlaceList/PlaceList';
 import PlaceServicesScreen from '../screens/PlaceServices/PlaceServices';
+import HomeScreen from '../screens/Home/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ function MainNavigator() {
         headerStyle: { backgroundColor: '#1FC9C2' }
       }}
     >
+      <Stack.Screen name='Home' component={HomeScreen}options={{ title: 'Inicio'}}/>
       <Stack.Screen name='Search' component={SearchScreen}/>
       <Stack.Screen name='Categories' component={CategoriesScreen} options={{ title: 'Categorías'}}/>
       <Stack.Screen name='Place' component={PlaceScreen}/>

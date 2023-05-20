@@ -10,6 +10,14 @@ export default function DrawerContainer(props) {
     <View style={styles.content}>
       <View style={styles.container}>
         <MenuButton
+          title="MENÚ"
+          source={require("../../../assets/icons/home.png")}
+          onPress={() => {
+            navigation.navigate("Home");
+            navigation.closeDrawer();
+          }}
+        />
+        <MenuButton
           title="CATEGORÍAS"
           source={require("../../../assets/icons/categories.png")}
           onPress={() => {
