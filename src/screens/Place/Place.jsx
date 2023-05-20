@@ -32,6 +32,7 @@ export default function PlaceScreen(props) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      title:'',
       headerTransparent: "true",
       headerLeft: () => (
         <BackButton
@@ -40,7 +41,7 @@ export default function PlaceScreen(props) {
           }}
         />
       ),
-      headerRight: () => <View />,
+      headerRight: () => <View><Text>Hola</Text></View>,
     });
   }, []);
 
@@ -117,8 +118,8 @@ export default function PlaceScreen(props) {
           <ViewProvidersButton
             onPress={() => {
               let providers = item.providers;
-              let title = "Providers for " + item.title;
-              navigation.navigate("ProvidersDetails", { providers, title });
+              let title = "Servicios: " + item.title;
+              navigation.navigate("PlaceServices", { providers, title });
             }}
           />
         </View>
