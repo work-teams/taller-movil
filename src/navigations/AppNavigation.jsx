@@ -1,7 +1,10 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer } from '@react-navigation/native'
-import { createDrawerNavigator } from '@react-navigation/drawer'
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import CategoriesScreen from '../screens/Categories/CategoriesScreen';
+import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
+import SearchScreen from '../screens/Search/SearchScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,13 +17,14 @@ function MainNavigator() {
           textAlign: 'center',
           alignSelf: 'center',
           flex: 1,
-        }
+        },
+        headerStyle: { backgroundColor: '#1FC9C2' }
       }}
     >
-      {/* inicia stack de screen (descomentar linea 20) */}
-      {/* <Stack.Screen name='Home' component={HomeScreen} /> */}
+      <Stack.Screen name='Search' component={SearchScreen}/>
+      <Stack.Screen name='Categories' component={CategoriesScreen} options={{ title: 'Categorías'}}/>
     </Stack.Navigator>
-  )
+  );
 }
 
 
@@ -40,7 +44,7 @@ function DrawerStack() {
     >
       <Drawer.Screen name='Main' component={MainNavigator} />
     </Drawer.Navigator>
-  )
+  );
 }
 
 
@@ -49,7 +53,7 @@ export default function AppContainer() {
     <NavigationContainer>
       <DrawerStack />
     </NavigationContainer>
-  )
+  );
 }
 
 
