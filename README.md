@@ -77,7 +77,10 @@ Decidimos rediseñar nuestro primer modelo complejo por un diseño simple con un
 
 **3. Flexibilidad y escalabilidad:** Un diseño simple con un menú hamburguesa es altamente flexible y escalable. A medida que los estudiantes avanzan en su aprendizaje y adquieren más habilidades en desarrollo móvil, podrán agregar y modificar fácilmente nuevas secciones y funcionalidades dentro del aplicativo, sin que esto afecte significativamente la estructura y la navegación general.
 
-**4. Estética y tendencia actual:** Los diseños minimalistas y con menú hamburguesa son ampliamente aceptados y utilizados en aplicativos móviles modernos. Al exponer a los estudiantes a este tipo de diseño desde el principio, estarán al tanto de las últimas tendencias y prácticas de diseño, lo que les permitirá desarrollar aplicativos visualmente atractivos y actualizados.
+**4. Estética y tendencia actual:** Los diseños minimalistas y con menú hamburguesa son ampliamente aceptados y utilizados en aplicativos móviles modernos. Al exponer a los estudiantes a este tipo de diseño desde el principio, estarán al tanto de las últimas tendencias y prácticas de diseño, lo que les permitirá desarrollar aplicativos visualmente atractivos y actualizados.  
+![Img muestra1](https://img.freepik.com/vector-gratis/diseno-interfaz-pantallas-aplicaciones-viaje_23-2148602411.jpg?w=2000)  
+
+![Img muestra2](https://img.freepik.com/vector-gratis/concepto-interfaz-aplicacion-viaje_52683-42552.jpg)
 
 **5. Compatibilidad con diferentes plataformas:** Un diseño simple con un menú hamburguesa se adapta bien a diferentes plataformas móviles, como Android e iOS. Esto permite a los estudiantes desarrollar habilidades que son fácilmente transferibles y aplicables en diferentes entornos y sistemas operativos móviles.
 

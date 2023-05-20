@@ -32,7 +32,7 @@ export default function PlaceScreen(props) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title:'',
+      title: '',
       headerTransparent: "true",
       headerLeft: () => (
         <BackButton
