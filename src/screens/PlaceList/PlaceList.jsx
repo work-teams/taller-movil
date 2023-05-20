@@ -29,8 +29,8 @@ export default function PlacesListScreen(props) {
   };
 
   const renderPlaces = ({ item }) => (
-    <TouchableHighlight style={styles.container} underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressPlace(item)}>
-      <View>
+    <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressPlace(item)}>
+      <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.category}>{getCategoryName(item.categoryId)}</Text>

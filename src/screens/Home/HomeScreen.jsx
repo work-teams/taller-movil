@@ -10,6 +10,12 @@ export default function HomeScreen(props) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      color: '#ffffff',
+      fontWeight: "bold",
+      textAlign: "center",
+      alignSelf: "center",
+      paddingTop: 12,
+      flex: 1,
       headerLeft: () => (
         <MenuImage
           onPress={() => {
