@@ -34,7 +34,6 @@ export function getPlaces(categoryId) {
 
 export function getNumberOfPlaces(categoryId) {
   let count = 0;
-  return -1;
   places.map(data => {
     if (data.categoryId == categoryId) {
       count++;
