@@ -1,8 +1,9 @@
-import { getPlaces } from './getPlaces';
+import { getPlaces } from '../../src/data/MockDataAPI';
 import { places } from '../../src/data/dataArrays';
 
 describe('getPlaces', () => {
-    it('should return an array of places with the given categoryId', () => {
+    // positive test cases
+    test('should return an array of places with the given categoryId', () => {
         const input = [0, 1, 2];
         const expectedOutput = [
             places.filter(place => place.categoryId === 0),
@@ -14,4 +15,11 @@ describe('getPlaces', () => {
             expect(getPlaces(categoryId)).toEqual(expectedOutput[index]);
         });
     });
+
+    // negative test cases
+    test('should return an empty array when given an invalid categoryId', () => {
+        const invalidCategoryId = 999;
+        expect(getPlaces(invalidCategoryId)).toEqual([]);
+    });
+
 });

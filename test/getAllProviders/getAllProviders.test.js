@@ -1,4 +1,4 @@
-import { getAllProviders } from './getAllProviders';
+import { getAllProviders } from '../../src/data/MockDataAPI';
 
 describe('getAllProviders', () => {
     const providers = [
@@ -7,7 +7,8 @@ describe('getAllProviders', () => {
         { providerId: 2, name: 'Sonesta Hotel', photo_url: 'https://media-cdn.tripadvisor.com/media/photo-s/1d/1e/58/1c/exterior.jpg' }
     ];
 
-    it('should return an array of providers with their corresponding IDs when given a valid array of IDs', () => {
+    // positive test cases
+    test('should return an array of providers with their corresponding IDs when given a valid array of IDs', () => {
         const idArray = [[0, 'id1'], [1, 'id2']];
         const expectedArray = [
             [{ providerId: 0, name: 'Cruz del Sur', photo_url: 'https://images.ctfassets.net/1nvpgv2kdfc0/1kqJ26hOIgs5ltRX21DURK/8764ce9a5c4f943c1006795ea2dac0bf/Cruz_del_Sur_bus.png' }, 'id1'],
@@ -16,12 +17,13 @@ describe('getAllProviders', () => {
         expect(getAllProviders(idArray, providers)).toEqual(expectedArray);
     });
 
-    it('should return an empty array when given an empty array of IDs', () => {
+    test('should return an empty array when given an empty array of IDs', () => {
         const idArray = [];
         expect(getAllProviders(idArray, providers)).toEqual([]);
     });
 
-    it('should return an empty array when given an array of invalid IDs', () => {
+    // negative test cases
+    test('should return an empty array when given an array of invalid IDs', () => {
         const idArray = [[4, 'id1'], [5, 'id2']];
         expect(getAllProviders(idArray, providers)).toEqual([]);
     });
