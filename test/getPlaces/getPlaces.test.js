@@ -1,4 +1,4 @@
-import { getPlaces } from './getPlaces';
+import { getPlaces } from '../../src/data/MockDataAPI';
 import { places } from '../../src/data/dataArrays';
 
 describe('getPlaces', () => {

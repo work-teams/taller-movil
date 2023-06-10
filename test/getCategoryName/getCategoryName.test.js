@@ -1,4 +1,4 @@
-import { getCategoryName } from './getCategoryName';
+import { getCategoryName } from '../../src/data/MockDataAPI';
 
 describe('getCategoryName', () => {
     const categories = [

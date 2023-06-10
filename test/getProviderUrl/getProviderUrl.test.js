@@ -1,4 +1,4 @@
-import { getProviderUrl } from './getProviderUrl';
+import { getProviderUrl } from '../../src/data/MockDataAPI';
 
 describe('getProviderUrl', () => {
     const providers = [
