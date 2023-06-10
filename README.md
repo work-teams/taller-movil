@@ -10,9 +10,15 @@ Una aplicación que ofrezca guías turísticas personalizadas, recomendaciones d
 - Oscar Alberto Chumpitaz Peralta
 - Wiston Rikelme Pastor Moreno
 
-### Wireframe / Mock Up
-[Enlace a el diseño en Figma](https://www.figma.com/file/owsfexMa8G1kch2isEiUOf/TALLER-M%C3%93VIL-%7C-MOCK-UPS-%28Copy%29?node-id=0%3A1&t=waRnUMvvV5F8Ox2E-1)
+## Wireframe / Mock Up
+Enlace al diseño de interfaz eleborado en Figma.
+[Ir a Figma/taller-movil](https://www.figma.com/file/owsfexMa8G1kch2isEiUOf/TALLER-M%C3%93VIL-%7C-MOCK-UPS-%28Copy%29?node-id=0%3A1&t=waRnUMvvV5F8Ox2E-1)
 
+## Flujo de Trabajo
+En la pestaña discusiones se encuentra el flujo de trabajo a utilizar en el proyecto.
+[Ir a Discussions/Workflow](https://github.com/work-teams/taller-movil/discussions/6)  
+
+![Img](https://pbs.twimg.com/media/FyRcKfWXsAAqS5a?format=png&name=900x900)
 ## Guía de uso
 A continuación se presenta una guía paso a paso para poder levantar el proyecto:  
 
