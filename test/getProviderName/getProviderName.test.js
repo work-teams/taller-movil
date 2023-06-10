@@ -7,13 +7,15 @@ describe('getProviderName', () => {
         { providerId: 2, name: 'Sonesta Hotel' }
     ];
 
-    it('should return the name of the provider when given a valid providerID', () => {
+    // positive test cases
+    test('should return the name of the provider when given a valid providerID', () => {
         expect(getProviderName(0, providers)).toBe('Cruz del Sur');
         expect(getProviderName(1, providers)).toBe('LATAM Perú');
         expect(getProviderName(2, providers)).toBe('Sonesta Hotel');
     });
 
-    it('should return undefined when given an invalid providerID', () => {
+    // negative test cases
+    test('should return undefined when given an invalid providerID', () => {
         expect(getProviderName(3, providers)).toBeUndefined();
     });
 });
