@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, ScrollView, Text, View, Image, TouchableHighlight } from "react-native";
+import styles from "./styles";
 import { getProviderUrl, getPlacesByProvider, getCategoryName } from "../../data/MockDataAPI";
 
 export default function ProviderScreen(props) {
@@ -22,21 +23,21 @@ export default function ProviderScreen(props) {
   const renderPlaces = ({ item }) => (
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressPlace(item)}>
       <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressPlace(item)}>
-        <View>
-          <Image source={{ uri: item.photo_url }} />
-          <Text >{item.title}</Text>
-          <Text >{getCategoryName(item.categoryId)}</Text>
+        <View style={styles.container}>
+          <Image style={styles.photo} source={{ uri: item.photo_url }} />
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.category}>{getCategoryName(item.categoryId)}</Text>
         </View>
       </TouchableHighlight>
     </TouchableHighlight>
   );
 
   return (
-    <ScrollView >
-      <View >
-        <Image source={{ uri: "" + providerUrl }} />
+    <ScrollView style={styles.mainContainer}>
+      <View style={{ borderBottomWidth: 0.4, marginBottom: 10, borderBottomColor: "grey" }}>
+        <Image style={styles.photoProvider} source={{ uri: "" + providerUrl }} />
       </View>
-      <Text>Places with {providerName}:</Text>
+      <Text style={styles.providerInfo}>Places with {providerName}:</Text>
       <View>
         <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={getPlacesByProvider(providerId)} renderItem={renderPlaces} keyExtractor={(item) => `${item.placeId}`} />
       </View>
