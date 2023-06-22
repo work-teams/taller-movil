@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight, Pressable } from "react-native";
 import styles from "./styles";
 import MenuImage from "../../components/MenuImage/MenuImage";
-import { getCategoryName, getPlacesByPlaceName, getPlacesByCategoryName } from "../../data/MockDataAPI";
+import { getCategoryName, getPlacesByPlaceName, getPlacesByCategoryName, getPlacesByProviderName } from "../../data/MockDataAPI";
 import { TextInput } from "react-native-gesture-handler";
 
 export default function SearchScreen(props) {
@@ -26,11 +26,10 @@ export default function SearchScreen(props) {
           <TextInput
             style={styles.searchInput}
             onChangeText={handleSearch}
-            placeholder="Buscar lugares turísticos"
             value={value}
           />
           <Pressable onPress={() => handleSearch("")}>
-            <Image style={styles.closeIcon} source={require("../../../assets/icons/close.png")} />
+          <Image style={styles.searchIcon} source={require("../../../assets/icons/close.png")} />
           </Pressable>
         </View>
       ),
@@ -38,12 +37,13 @@ export default function SearchScreen(props) {
     });
   }, [value]);
 
-  useEffect(() => { }, [value]);
+  useEffect(() => {}, [value]);
 
   const handleSearch = (text) => {
     setValue(text);
     var placeArray1 = getPlacesByPlaceName(text);
     var placeArray2 = getPlacesByCategoryName(text);
+    var placeArray3 = getPlacesByProviderName(text);
     var aux = placeArray1.concat(placeArray2);
     var placeArray = [...new Set(aux)];
 
@@ -55,15 +55,14 @@ export default function SearchScreen(props) {
   };
 
   const onPressPlace = (item) => {
-    //TODO: Agregar Vista PlaceScreen
-    navigation.navigate("Place", { item });
+    navigation.navigate("Lugar", { item });
   };
 
   const renderPlaces = ({ item }) => (
     <TouchableHighlight underlayColor="rgba(73,182,77,0.9)" onPress={() => onPressPlace(item)}>
       <View style={styles.container}>
         <Image style={styles.photo} source={{ uri: item.photo_url }} />
-        <Text style={styles.title}  >{item.title}</Text>
+        <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.category}>{getCategoryName(item.categoryId)}</Text>
       </View>
     </TouchableHighlight>

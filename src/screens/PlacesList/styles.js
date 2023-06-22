@@ -5,11 +5,7 @@ const styles = StyleSheet.create({
   container: PlaceCard.container,
   photo: PlaceCard.photo,
   title: PlaceCard.title,
-  category: {
-    flex: 1,
-    textAlign: 'center',
-    justifyContent: 'center'
-  },
+  category: PlaceCard.category
 });
 
 export default styles;

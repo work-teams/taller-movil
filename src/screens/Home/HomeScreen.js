@@ -1,31 +1,28 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, TouchableHighlight, Image } from "react-native";
 import styles from "./styles";
-import { getPlaces, getCategoryName } from "../../data/MockDataAPI";
+import { places } from "../../data/dataArrays";
+import MenuImage from "../../components/MenuImage/MenuImage";
+import { getCategoryName } from "../../data/MockDataAPI";
 
-export default function PlacesListScreen(props) {
-  const { navigation, route } = props;
-
-  const item = route?.params?.category;
-  const placesArray = getPlaces(item.id);
+export default function HomeScreen(props) {
+  const { navigation } = props;
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitleStyle: {
-        color: '#ffffff',
-        fontWeight: "bold",
-        textAlign: "center",
-        alignSelf: "center",
-        paddingTop: 12,
-        flex: 1,
-      },
-      title: route.params?.title,
+      headerLeft: () => (
+        <MenuImage
+          onPress={() => {
+            navigation.openDrawer();
+          }}
+        />
+      ),
       headerRight: () => <View />,
     });
   }, []);
 
   const onPressPlace = (item) => {
-    navigation.navigate("Place", { item });
+    navigation.navigate("Lugar", { item });
   };
 
   const renderPlaces = ({ item }) => (
@@ -40,7 +37,7 @@ export default function PlacesListScreen(props) {
 
   return (
     <View>
-      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={placesArray} renderItem={renderPlaces} keyExtractor={(item) => `${item.placeId}`} />
+      <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={places} renderItem={renderPlaces} keyExtractor={(item) => `${item.placeId}`} />
     </View>
   );
 }

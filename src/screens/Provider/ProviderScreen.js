@@ -17,7 +17,7 @@ export default function ProviderScreen(props) {
   }, []);
 
   const onPressPlace = (item) => {
-    navigation.navigate("Place", { item });
+    navigation.navigate("Lugar", { item });
   };
 
   const renderPlaces = ({ item }) => (
@@ -37,7 +37,7 @@ export default function ProviderScreen(props) {
       <View style={{ borderBottomWidth: 0.4, marginBottom: 10, borderBottomColor: "grey" }}>
         <Image style={styles.photoProvider} source={{ uri: "" + providerUrl }} />
       </View>
-      <Text style={styles.providerInfo}>Places with {providerName}:</Text>
+      <Text style={styles.providerInfo}>Lugares con {providerName}:</Text>
       <View>
         <FlatList vertical showsVerticalScrollIndicator={false} numColumns={2} data={getPlacesByProvider(providerId)} renderItem={renderPlaces} keyExtractor={(item) => `${item.placeId}`} />
       </View>

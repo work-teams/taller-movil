@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     width: 25
   },
   btnText: {
-    color: '#ffffff',
     fontSize: 16,
     marginLeft: 10,
     marginTop: 2

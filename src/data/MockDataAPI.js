@@ -1,15 +1,6 @@
+// import { Text } from 'react-native';
+// import React, { Component } from 'react';
 import { places, categories, providers } from './dataArrays';
-
-// interactuar con categoria
-export function getCategoryName(categoryId) {
-  let name;
-  categories.map(data => {
-    if (data.id == categoryId) {
-      name = data.name;
-    }
-  });
-  return name;
-}
 
 export function getCategoryById(categoryId) {
   let category;
@@ -21,13 +12,55 @@ export function getCategoryById(categoryId) {
   return category;
 }
 
-// interactuar con lugares
+export function getProviderName(providerId) {
+  let name;
+  providers.map(data => {
+    if (data.providerId == providerId) {
+      name = data.name;
+    }
+  });
+  return name;
+}
+
+export function getProviderUrl(providerId) {
+  let url;
+  providers.map(data => {
+    if (data.providerId == providerId) {
+      url = data.photo_url;
+    }
+  });
+  return url;
+}
+
+export function getCategoryName(categoryId) {
+  let name;
+  categories.map(data => {
+    if (data.id == categoryId) {
+      name = data.name;
+    }
+  });
+  return name;
+}
+
 export function getPlaces(categoryId) {
   const placesArray = [];
   places.map(data => {
     if (data.categoryId == categoryId) {
       placesArray.push(data);
     }
+  });
+  return placesArray;
+}
+
+// modifica
+export function getPlacesByProvider(providerId) {
+  const placesArray = [];
+  places.map(data => {
+    data.providers.map(index => {
+      if (index[0] == providerId) {
+        placesArray.push(data);
+      }
+    });
   });
   return placesArray;
 }
@@ -42,39 +75,6 @@ export function getNumberOfPlaces(categoryId) {
   return count;
 }
 
-export function getPlacesByProvider(providerId) {
-  const placesArray = [];
-  places.map(data => {
-    data.providers.map(index => {
-      if (index[0] == providerId) {
-        placesArray.push(data);
-      }
-    });
-  });
-  return placesArray;
-}
-
-// interactuar con proveedores
-export function getProviderName(providerID) {
-  let name;
-  providers.map(data => {
-    if (data.providerId == providerID) {
-      name = data.name;
-    }
-  });
-  return name;
-}
-
-export function getProviderUrl(providerID) {
-  let url;
-  providers.map(data => {
-    if (data.providerId == providerID) {
-      url = data.photo_url;
-    }
-  });
-  return url;
-}
-
 export function getAllProviders(idArray) {
   const providersArray = [];
   idArray.map(index => {
@@ -87,13 +87,30 @@ export function getAllProviders(idArray) {
   return providersArray;
 }
 
-// funciones de busqueda
+// functions for search
+export function getPlacesByProviderName(providerName) {
+  const nameUpper = providerName.toUpperCase();
+  const placesArray = [];
+  providers.map(data => {
+    if (data.name.toUpperCase().includes(nameUpper)) {
+      // data.name.yoUpperCase() == nameUpper
+      const places = getPlacesByProvider(data.providerId);
+      const unique = [...new Set(places)];
+      unique.map(item => {
+        placesArray.push(item);
+      });
+    }
+  });
+  const uniqueArray = [...new Set(placesArray)];
+  return uniqueArray;
+}
+
 export function getPlacesByCategoryName(categoryName) {
   const nameUpper = categoryName.toUpperCase();
   const placesArray = [];
   categories.map(data => {
     if (data.name.toUpperCase().includes(nameUpper)) {
-      const places = getPlaces(data.id);
+      const places = getPlaces(data.id); // return a vector of places
       places.map(item => {
         placesArray.push(item);
       });
@@ -111,20 +128,4 @@ export function getPlacesByPlaceName(placeName) {
     }
   });
   return placesArray;
-}
-
-export function getPlacesByProviderName(providerName) {
-  const nameUpper = providerName.toUpperCase();
-  const placesArray = [];
-  providers.map(data => {
-    if (data.name.toUpperCase().includes(nameUpper)) {
-      const places = getPlacesByProvider(data.providerId);
-      const unique = [...new Set(places)];
-      unique.map(item => {
-        placesArray.push(item);
-      });
-    }
-  });
-  const uniqueArray = [...new Set(placesArray)];
-  return uniqueArray;
 }

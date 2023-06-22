@@ -16,7 +16,7 @@ export const categories = [
     name: 'Selva',
     photo_url:
       'https://elperuano.pe/fotografia/thumbnail/2021/11/07/000138274M.jpg'
-  }
+  },
 ];
 
 export const places = [
@@ -32,7 +32,7 @@ export const places = [
     location: 'Lima',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -50,7 +50,7 @@ export const places = [
     location: 'Cusco',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -69,7 +69,7 @@ export const places = [
     location: 'Cusco',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -87,7 +87,7 @@ export const places = [
     location: 'Puno',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -104,7 +104,7 @@ export const places = [
     location: 'Cusco',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -122,7 +122,7 @@ export const places = [
     location: 'Paracas',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -139,7 +139,7 @@ export const places = [
     location: 'Nazca',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -156,7 +156,7 @@ export const places = [
     location: 'Nazca',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -173,7 +173,7 @@ export const places = [
     location: 'Arequipa',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -192,7 +192,7 @@ export const places = [
     location: 'Arequipa',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -209,7 +209,7 @@ export const places = [
     location: 'Iquitos',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
@@ -227,12 +227,12 @@ export const places = [
     location: 'Iquitos',
     providers: [
       [0, 'Buses'],
-      [1, 'Aerolíneas']
+      [1, 'Aerolíneas'],
       [2, 'Hoteles'],
     ],
     description:
       '-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum sapiente accusantium hic, doloribus repellat! Accusamus illum quas asperiores dolor eius alias, fuga ab quasi accusantium consectetur sed, beatae consequuntur.\n\n -- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum sapiente accusantium hic, doloribus repellat! Accusamus illum quas asperiores dolor eius alias, fuga ab quasi accusantium consectetur sed, beatae consequuntur.'
-  },
+  }
 ];
 
 export const providers = [
@@ -251,5 +251,5 @@ export const providers = [
     providerId: 2,
     name: 'Sonesta Hotel',
     photo_url: 'https://media-cdn.tripadvisor.com/media/photo-s/1d/1e/58/1c/exterior.jpg'
-  }
+  },
 ];
