@@ -1,12 +1,16 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
+// screen sizing
 const { width, height } = Dimensions.get('window');
+// orientation must fixed
 const SCREEN_WIDTH = width < height ? width : height;
 
-const placeNumColums = 1;
+const placeNumColums = 2;
+// item size
 const PLACE_ITEM_HEIGHT = 150;
 const PLACE_ITEM_MARGIN = 20;
 
+// 2 photos per width
 export const PlaceCard = StyleSheet.create({
   container: {
     flex: 1,

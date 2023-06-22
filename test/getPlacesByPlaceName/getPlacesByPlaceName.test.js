@@ -16,7 +16,7 @@ describe('getPlacesByPlaceName', () => {
             location: 'Lima',
             providers: [
                 [0, 'Buses'],
-                [1, 'Aerolíneas']
+                [1, 'Aerolíneas'],
                 [2, 'Hoteles'],
             ],
             description:

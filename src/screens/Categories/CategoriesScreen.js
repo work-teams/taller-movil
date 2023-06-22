@@ -11,7 +11,6 @@ export default function CategoriesScreen(props) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitleStyle: {
-        color: '#ffffff',
         fontWeight: "bold",
         textAlign: "center",
         alignSelf: "center",
@@ -31,7 +30,6 @@ export default function CategoriesScreen(props) {
   const onPressCategory = (item) => {
     const title = item.name;
     const category = item;
-    //TODO: Agregar Vista PlacesListScreen
     navigation.navigate("PlacesList", { category, title });
   };
 
@@ -40,7 +38,7 @@ export default function CategoriesScreen(props) {
       <View style={styles.categoriesItemContainer}>
         <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} />
         <Text style={styles.categoriesName}>{item.name}</Text>
-        <Text style={styles.categoriesInfo}>{getNumberOfPlaces(item.id)} Lugares Turísticos</Text>
+        <Text style={styles.categoriesInfo}>{getNumberOfPlaces(item.id)} places</Text>
       </View>
     </TouchableHighlight>
   );

@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   infoPhoto: {
+    height: 20,
+    width: 20,
     marginRight: 0
   },
   infoPlace: {

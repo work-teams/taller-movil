@@ -106,4 +106,3 @@ Los diseños minimalistas y con menú hamburguesa son ampliamente aceptados y ut
 
 **5. Compatibilidad con diferentes plataformas:**  
 Un diseño simple con un menú hamburguesa se adapta bien a diferentes plataformas móviles, como Android e iOS. Esto permite a los estudiantes desarrollar habilidades que son fácilmente transferibles y aplicables en diferentes entornos y sistemas operativos móviles.
-

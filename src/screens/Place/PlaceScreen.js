@@ -32,7 +32,6 @@ export default function PlaceScreen(props) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: '',
       headerTransparent: "true",
       headerLeft: () => (
         <BackButton
@@ -41,7 +40,7 @@ export default function PlaceScreen(props) {
           }}
         />
       ),
-      headerRight: () => <View><Text>Hola</Text></View>,
+      headerRight: () => <View />,
     });
   }, []);
 
@@ -111,15 +110,15 @@ export default function PlaceScreen(props) {
             style={styles.infoPhoto}
             source={require("../../../assets/icons/location.png")}
           />
-          <Text style={styles.infoPlace}>{item.location}, Perú </Text>
+          <Text style={styles.infoPlace}>{item.location}</Text>
         </View>
 
         <View style={styles.infoContainer}>
           <ViewProvidersButton
             onPress={() => {
               let providers = item.providers;
-              let title = "Servicios: " + item.title;
-              navigation.navigate("PlaceServices", { providers, title });
+              let title = "Proveedores para " + item.title;
+              navigation.navigate("ProvidersDetails", { providers, title });
             }}
           />
         </View>
