@@ -1,7 +1,8 @@
-import { getPlacesByPlaceName } from './getPlacesByPlaceName';
+import { getPlacesByPlaceName } from '../../src/data/MockDataAPI';
 
 describe('getPlacesByPlaceName', () => {
-    it('should return an array with Ciudadela de Caral when given the name Ciudadela de Caral', () => {
+    // positive test cases
+    test('should return an array with Ciudadela de Caral when given the name Ciudadela de Caral', () => {
         const placeName = 'Ciudadela de Caral';
         const expectedArray = [{
             placeId: 0,
@@ -15,7 +16,7 @@ describe('getPlacesByPlaceName', () => {
             location: 'Lima',
             providers: [
                 [0, 'Buses'],
-                [1, 'Aerolíneas']
+                [1, 'Aerolíneas'],
                 [2, 'Hoteles'],
             ],
             description:
@@ -24,7 +25,8 @@ describe('getPlacesByPlaceName', () => {
         expect(getPlacesByPlaceName(placeName)).toEqual(expectedArray);
     });
 
-    it('should return an empty array when given the name that does not match any places', () => {
+    // negative test cases
+    test('should return an empty array when given the name that does not match any places', () => {
         const placeName = 'Chichen Itza';
         expect(getPlacesByPlaceName(placeName)).toEqual([]);
     });
