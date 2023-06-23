@@ -1,6 +1,6 @@
 // import { Text } from 'react-native';
 // import React, { Component } from 'react';
-import { places, categories, providers } from './dataArrays';
+import { places, categories, services } from './dataArrays';
 
 export function getCategoryById(categoryId) {
   let category;
@@ -12,24 +12,34 @@ export function getCategoryById(categoryId) {
   return category;
 }
 
-export function getProviderName(providerId) {
+export function getServiceName(serviceId) {
   let name;
-  providers.map(data => {
-    if (data.providerId == providerId) {
+  services.map(data => {
+    if (data.serviceId == serviceId) {
       name = data.name;
     }
   });
   return name;
 }
 
-export function getProviderUrl(providerId) {
+export function getServiceUrl(serviceId) {
   let url;
-  providers.map(data => {
-    if (data.providerId == providerId) {
+  services.map(data => {
+    if (data.serviceId == serviceId) {
       url = data.photo_url;
     }
   });
   return url;
+}
+
+export function getServiceDescription(serviceId) {
+  let description;
+  services.map(data => {
+    if (data.serviceId == serviceId) {
+      description = data.description;
+    }
+  });
+  return description;
 }
 
 export function getCategoryName(categoryId) {
@@ -53,11 +63,11 @@ export function getPlaces(categoryId) {
 }
 
 // modifica
-export function getPlacesByProvider(providerId) {
+export function getPlacesByService(serviceId) {
   const placesArray = [];
   places.map(data => {
-    data.providers.map(index => {
-      if (index[0] == providerId) {
+    data.services.map(index => {
+      if (index[0] == serviceId) {
         placesArray.push(data);
       }
     });
@@ -75,26 +85,26 @@ export function getNumberOfPlaces(categoryId) {
   return count;
 }
 
-export function getAllProviders(idArray) {
-  const providersArray = [];
+export function getAllServices(idArray) {
+  const servicesArray = [];
   idArray.map(index => {
-    providers.map(data => {
-      if (data.providerId == index[0]) {
-        providersArray.push([data, index[1]]);
+    services.map(data => {
+      if (data.serviceId == index[0]) {
+        servicesArray.push([data, index[1]]);
       }
     });
   });
-  return providersArray;
+  return servicesArray;
 }
 
 // functions for search
-export function getPlacesByProviderName(providerName) {
-  const nameUpper = providerName.toUpperCase();
+export function getPlacesByServiceName(serviceName) {
+  const nameUpper = serviceName.toUpperCase();
   const placesArray = [];
-  providers.map(data => {
+  services.map(data => {
     if (data.name.toUpperCase().includes(nameUpper)) {
       // data.name.yoUpperCase() == nameUpper
-      const places = getPlacesByProvider(data.providerId);
+      const places = getPlacesByService(data.serviceId);
       const unique = [...new Set(places)];
       unique.map(item => {
         placesArray.push(item);

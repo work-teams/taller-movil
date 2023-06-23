@@ -30,7 +30,7 @@ export const places = [
       'https://catedraunesco.usmp.edu.pe/wp-content/uploads/2018/08/4-caral.jpg'
     ],
     location: 'Lima',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -48,7 +48,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Interior_de_Machu_Pi.max-1350x1080.format-webp-lossless_ttOfxX6.webp'
     ],
     location: 'Cusco',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -67,7 +67,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Cusco_de_Noche.max-1350x1080.format-webp-lossless_qtxrfNV.webp'
     ],
     location: 'Cusco',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -85,7 +85,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Titicaca_Puno.max-1350x1080.format-webp-lossless_L31khvA.webp'
     ],
     location: 'Puno',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -102,7 +102,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Valle_Sagrado_de_los.max-1350x1080.format-webp-lossless_KAt0ql9.webp'
     ],
     location: 'Cusco',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -120,7 +120,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Islas_Ballestas_4etP.max-1350x1080.format-webp-lossless_nSfLnvI.webp'
     ],
     location: 'Paracas',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -137,7 +137,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Lineas_de_Nazca.max-1350x1080.format-webp-lossless_ff7Z0QL.webp'
     ],
     location: 'Nazca',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -154,7 +154,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/1280px-Acueductos_su.max-1350x1080.format-webp-lossless.webp'
     ],
     location: 'Nazca',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -171,7 +171,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/canon-del-colca.max-1350x1080.format-webp-lossless.webp'
     ],
     location: 'Arequipa',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -190,7 +190,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Comida_de_Arequipe.max-1350x1080.format-webp-lossless_nToWkkK.webp'
     ],
     location: 'Arequipa',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -207,7 +207,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Amazonas_Peru_g0Psqw.max-1350x1080.format-webp-lossless_OKN6RVe.webp'
     ],
     location: 'Iquitos',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -225,7 +225,7 @@ export const places = [
       'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Plaza_de_Armas_de_Iq.max-1350x1080.format-webp-lossless_l49urWR.webp'
     ],
     location: 'Iquitos',
-    providers: [
+    services: [
       [0, 'Buses'],
       [1, 'Aerolíneas'],
       [2, 'Hoteles'],
@@ -235,21 +235,24 @@ export const places = [
   }
 ];
 
-export const providers = [
+export const services = [
   {
-    providerId: 0,
+    serviceId: 0,
     name: 'Cruz del Sur',
-    photo_url: 'https://images.ctfassets.net/1nvpgv2kdfc0/1kqJ26hOIgs5ltRX21DURK/8764ce9a5c4f943c1006795ea2dac0bf/Cruz_del_Sur_bus.png'
+    photo_url: 'https://images.ctfassets.net/1nvpgv2kdfc0/1kqJ26hOIgs5ltRX21DURK/8764ce9a5c4f943c1006795ea2dac0bf/Cruz_del_Sur_bus.png',
+    description: 'Empresa de transporte terrestre interprovinsional'
   },
   {
-    providerId: 1,
+    serviceId: 1,
     name: 'LATAM Perú',
     photo_url:
-      'https://elcomercio.pe/resizer/0WL_qDGXSvtMc2ecM2xy62ZSEbM=/1200x800/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/F33LKLQJBRHQREI2QPZWM3M6NQ.jpg'
+      'https://elcomercio.pe/resizer/0WL_qDGXSvtMc2ecM2xy62ZSEbM=/1200x800/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/F33LKLQJBRHQREI2QPZWM3M6NQ.jpg',
+    description: 'Aerolínea a nivel nacional'
   },
   {
-    providerId: 2,
+    serviceId: 2,
     name: 'Sonesta Hotel',
-    photo_url: 'https://media-cdn.tripadvisor.com/media/photo-s/1d/1e/58/1c/exterior.jpg'
+    photo_url: 'https://media-cdn.tripadvisor.com/media/photo-s/1d/1e/58/1c/exterior.jpg',
+    description: 'Red de hoteles a nivel nacional'
   },
 ];

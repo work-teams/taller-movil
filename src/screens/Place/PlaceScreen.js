@@ -10,12 +10,12 @@ import {
 import styles from "./styles";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import {
-  getProviderName,
+  getServiceName,
   getCategoryName,
   getCategoryById,
 } from "../../data/MockDataAPI";
 import BackButton from "../../components/BackButton/BackButton";
-import ViewProvidersButton from "../../components/ViewProvidersButton/ViewProvidersButton";
+import ViewServicesButton from "../../components/ViewServicesButton/ViewServicesButton";
 
 const { width: viewportWidth } = Dimensions.get("window");
 
@@ -52,10 +52,10 @@ export default function PlaceScreen(props) {
     </TouchableHighlight>
   );
 
-  const onPressProvider = (item) => {
-    var name = getProviderName(item);
-    let provider = item;
-    navigation.navigate("Provider", { provider, name });
+  const onPressService = (item) => {
+    var name = getServiceName(item);
+    let service = item;
+    navigation.navigate("Service", { service, name });
   };
 
   return (
@@ -114,11 +114,11 @@ export default function PlaceScreen(props) {
         </View>
 
         <View style={styles.infoContainer}>
-          <ViewProvidersButton
+          <ViewServicesButton
             onPress={() => {
-              let providers = item.providers;
-              let title = "Proveedores para " + item.title;
-              navigation.navigate("ProvidersDetails", { providers, title });
+              let services = item.services;
+              let title = "Servicios: " + item.title;
+              navigation.navigate("ServicesDetails", { services, title });
             }}
           />
         </View>

@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight, Pressable } from "react-native";
 import styles from "./styles";
 import MenuImage from "../../components/MenuImage/MenuImage";
-import { getCategoryName, getPlacesByPlaceName, getPlacesByCategoryName, getPlacesByProviderName } from "../../data/MockDataAPI";
+import { getCategoryName, getPlacesByPlaceName, getPlacesByCategoryName, getPlacesByServiceName } from "../../data/MockDataAPI";
 import { TextInput } from "react-native-gesture-handler";
 
 export default function SearchScreen(props) {
@@ -43,7 +43,7 @@ export default function SearchScreen(props) {
     setValue(text);
     var placeArray1 = getPlacesByPlaceName(text);
     var placeArray2 = getPlacesByCategoryName(text);
-    var placeArray3 = getPlacesByProviderName(text);
+    var placeArray3 = getPlacesByServiceName(text);
     var aux = placeArray1.concat(placeArray2);
     var placeArray = [...new Set(aux)];
 
