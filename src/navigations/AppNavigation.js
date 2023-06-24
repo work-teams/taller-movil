@@ -2,11 +2,14 @@ import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer} from '@react-navigation/native'
 import {createDrawerNavigator} from '@react-navigation/drawer' 
-import HomeScreen from '../screens/Home/HomeScreen';
 import CategoriesScreen from '../screens/Categories/CategoriesScreen';
+import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
+import HomeScreen from '../screens/Home/HomeScreen';
+import LoginScreen from '../screens/Login/LoginScreen';
 import PlaceScreen from '../screens/Place/PlaceScreen';
 import PlacesListScreen from '../screens/PlacesList/PlacesListScreen';
-import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
+import ProvidersDetailsScreen from '../screens/ProvidersDetails/ProvidersDetailsScreen';
+import ProviderScreen from '../screens/Provider/ProviderScreen';
 import ServiceScreen from '../screens/Service/ServiceScreen';
 import SearchScreen from '../screens/Search/SearchScreen';
 import ServicesDetailsScreen from '../screens/ServicesDetails/ServicesDetailsScreen';
@@ -26,6 +29,7 @@ function MainNavigator() {
           }
       }}
     >
+      <Stack.Screen name='Iniciar Sesión' component={LoginScreen} />
       <Stack.Screen name='Inicio' component={HomeScreen} />
       <Stack.Screen name='Categorías' component={CategoriesScreen}/>
       <Stack.Screen name='Lugar' component={PlaceScreen}/>
