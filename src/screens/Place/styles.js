@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     flex: 1,
+    marginBottom:10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
   },
   infoPhoto: {
     height: 20,
-    width: 20,
+    width: 15,
     marginRight: 0
   },
   infoPlace: {
