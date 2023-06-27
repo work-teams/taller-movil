@@ -8,8 +8,6 @@ import HomeScreen from '../screens/Home/HomeScreen';
 import LoginScreen from '../screens/Login/LoginScreen';
 import PlaceScreen from '../screens/Place/PlaceScreen';
 import PlacesListScreen from '../screens/PlacesList/PlacesListScreen';
-import ProvidersDetailsScreen from '../screens/ProvidersDetails/ProvidersDetailsScreen';
-import ProviderScreen from '../screens/Provider/ProviderScreen';
 import ServiceScreen from '../screens/Service/ServiceScreen';
 import SearchScreen from '../screens/Search/SearchScreen';
 import ServicesDetailsScreen from '../screens/ServicesDetails/ServicesDetailsScreen';
