@@ -14,7 +14,7 @@ describe('getPlacesByPlaceName', () => {
                 'https://catedraunesco.usmp.edu.pe/wp-content/uploads/2018/08/4-caral.jpg'
             ],
             location: 'Lima',
-            providers: [
+            services: [
                 [0, 'Buses'],
                 [1, 'Aerolíneas'],
                 [2, 'Hoteles'],
