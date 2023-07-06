@@ -1,4 +1,4 @@
-//formulario de registro
+//formulario de registro de datos
 import React, { useState } from 'react';
 import styles from '../../../src/screens/Login/styles';
 import { StyleSheet, TouchableOpacity,Text, View,TextInput } from 'react-native';
