@@ -20,16 +20,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
+    marginLeft:5 
   },
   input: {
     borderWidth: 1,
     borderColor: 'gray',
     borderRadius: 5,
     padding: 10,
+    marginHorizontal:8,
     fontSize: 16
   },
   button: {
-    marginTop: 20,
+    margin: 20,
     backgroundColor: '#FB9057',
     alignSelf: 'center',
     justifyContent: 'center',
@@ -41,7 +43,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'white',
     textAlign: "center"
-  }
+  },
+  buttonRegister:{
+    color:"#442484",
+    fontWeight : "bold"
+  },
+  textAcount:{
+    marginHorizontal: 20,
+    marginVertical:1
+  },
 });
 
 export default styles;

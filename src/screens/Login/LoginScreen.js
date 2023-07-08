@@ -2,12 +2,14 @@ import React, { useState, useLayoutEffect } from 'react';
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
 import { handleLogin } from './handleLogin';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 export default LoginScreen = (props) => {
   const { navigation } = props;
+  //const navigation1 = UserNavigation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  
 	useLayoutEffect(() => {
     navigation.setOptions({
 			headerTitle: () => (
@@ -40,7 +42,7 @@ export default LoginScreen = (props) => {
           secureTextEntry
         />
       </View>
-
+      <CreateAccount/>
       <TouchableOpacity
 				style={styles.button}
         onPress={() => handleLogin(navigation, username, password)}
@@ -50,3 +52,18 @@ export default LoginScreen = (props) => {
     </View>
   );
 };
+
+function CreateAccount(props){
+  const navigation = useNavigation()
+  return(
+    <Text style={styles.textAcount}>
+      ¿Aun no tienes tu cuenta?{' '}
+      <Text 
+        style={styles.buttonRegister}
+         onPress={()=>navigation.navigate("register") }>
+          Regístrarte
+      </Text>
+
+    </Text>
+  )
+}
