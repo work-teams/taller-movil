@@ -6,7 +6,6 @@ import CategoriesScreen from '../screens/Categories/CategoriesScreen';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import HomeScreen from '../screens/Home/HomeScreen';
 import LoginScreen from '../screens/Login/LoginScreen';
-import Register from '../screens/Login/Register';
 import PlaceScreen from '../screens/Place/PlaceScreen';
 import PlacesListScreen from '../screens/PlacesList/PlacesListScreen';
 import ServiceScreen from '../screens/Service/ServiceScreen';
@@ -29,7 +28,6 @@ function MainNavigator() {
       }}
     >
       <Stack.Screen name='Iniciar Sesión' component={LoginScreen} />
-      <Stack.Screen name='register' component={Register} options={{title:"Registrar Usuario"}}/>
       <Stack.Screen name='Inicio' component={HomeScreen} />
       <Stack.Screen name='Categorías' component={CategoriesScreen}/>
       <Stack.Screen name='Lugar' component={PlaceScreen}/>
