@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginBottom: 20,
+    marginHorizontal:10
   },
   inputLabel: {
     fontSize: 16,
@@ -41,6 +42,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'white',
     textAlign: "center"
+  },
+  
+  buttonRegister:{
+    color:"#442484",
+    fontWeight : "bold"
+  },
+  textAcount:{
+    marginHorizontal: 20,
+    marginVertical:1
   }
 });
 
