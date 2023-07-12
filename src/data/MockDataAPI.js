@@ -2,11 +2,11 @@
 // import React, { Component } from 'react';
 import { places, categories, services } from './dataArrays';
 
-import { FirebaseApp } from '@firebase/app';
-import * as firebase from 'firebase'
-import 'firebase/firestore'
+//import { FirebaseApp } from '@firebase/app';
+//import * as firebase from 'firebase'
+//import 'firebase/firestore'
 
-const db = firebase.firestore(firabaseApp)
+//const db = firebase.firestore(firabaseApp)
 
 export function getCategoryById(categoryId) {
   let category;
