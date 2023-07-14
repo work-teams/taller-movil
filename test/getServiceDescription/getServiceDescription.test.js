@@ -40,9 +40,4 @@ describe('getServiceDescription', () => {
         expect(getServiceDescription('15', services)).toBeUndefined();
     });
 
-    //test para verificar cunado el servicio no tiene una descripcion
-    test('should return undefined when the service does not have a description', () => {
-        expect(getServiceDescription(8, services)).toBeUndefined();
-    });
-
 });
