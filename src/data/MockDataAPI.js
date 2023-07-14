@@ -1,14 +1,35 @@
 // import { Text } from 'react-native';
 // import React, { Component } from 'react';
 import { places, categories, services } from './dataArrays';
+import { firebase } from './firebase'
+import { collection, query, where } from "firebase/firestore";
 
-import { FirebaseApp } from '@firebase/app';
-import * as firebase from 'firebase'
-import 'firebase/firestore'
+// export async function getDemo(categoryId) {
+//   const db = firebase.firestore();
+//   // Create a reference to the cities collection
+//   const citiesRef = db.collection('categories');
 
-const db = firebase.firestore(firabaseApp)
+//   // Create a query against the collection
+//   queryRef = citiesRef.where('id', '==', 0);
+//   console.log(queryRef)
+// }
 
-export function getCategoryById(categoryId) {
+// import { firebase } from './firebase';
+
+// export async function getCategoryById(categoryId) {
+//   const db = firebase.firestore();
+//   const categoryDoc = await db.collection('categories').doc(categoryId).get();
+
+//   if (categoryDoc.exists) {
+//     const categoryData = categoryDoc.data();
+//     return categoryData;
+//   }
+
+//   return null;
+// }
+
+
+export function getCategoryById2(categoryId) {
   let category;
   categories.map(data => {
     if (data.id == categoryId) {

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from '../../../src/screens/Login/styles';
 import { StyleSheet, TouchableOpacity,Text, View,TextInput } from 'react-native';
+import { handleRegister } from './handleRegister'
 
 export default function RegisterForm() {
     const [formData,setFormData] = useState(defaultFormValues)
@@ -49,7 +50,7 @@ export default function RegisterForm() {
 
       <TouchableOpacity
 		style={styles.button}
-        onPress={() => console.log(formData)}
+        onPress={() => handleRegister(email, password)} //console.log(formData)
       >
         <Text style={styles.buttonText}>Registrar Nuevo Usuario</Text>
         
