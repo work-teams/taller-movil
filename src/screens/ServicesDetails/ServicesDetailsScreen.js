@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight } from "react-native";
 import styles from "./styles";
-import { getServiceName, getAllServices } from "../../data/MockDataAPI";
+import { getServiceName, getAllServices } from "../../data/handleFirebase";
 
 export default function ServicesDetailsScreen(props) {
   const { navigation, route } = props;

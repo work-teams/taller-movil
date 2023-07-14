@@ -1,21 +1,16 @@
-// import { Text } from 'react-native';
-// import React, { Component } from 'react';
 import { places, categories, services } from './dataArrays';
+import { firebase } from './firebase'
 
-//import { FirebaseApp } from '@firebase/app';
-//import * as firebase from 'firebase'
-//import 'firebase/firestore'
+export async function getCategoryById(categoryId) {
+  const db = firebase.firestore();
+  const categoryDoc = await db.collection('categories').doc(categoryId).get();
 
-//const db = firebase.firestore(firabaseApp)
+  if (categoryDoc.exists) {
+    const categoryData = categoryDoc.data();
+    return categoryData;
+  }
 
-export function getCategoryById(categoryId) {
-  let category;
-  categories.map(data => {
-    if (data.id == categoryId) {
-      category = data;
-    }
-  });
-  return category;
+  return null;
 }
 
 export function getServiceName(serviceId) {
@@ -37,6 +32,8 @@ export function getServiceUrl(serviceId) {
   });
   return url;
 }
+
+// * * * * * * * * * * * * * * * * * * * *
 
 export function getServiceDescription(serviceId) {
   let description;
@@ -68,6 +65,7 @@ export function getPlaces(categoryId) {
   return placesArray;
 }
 
+// * * * * * * * * * * * * * * * * * * * *
 // modifica
 export function getPlacesByService(serviceId) {
   const placesArray = [];
@@ -103,13 +101,13 @@ export function getAllServices(idArray) {
   return servicesArray;
 }
 
+// * * * * * * * * * * * * * * * * * * * *
 // functions for search
 export function getPlacesByServiceName(serviceName) {
   const nameUpper = serviceName.toUpperCase();
   const placesArray = [];
   services.map(data => {
     if (data.name.toUpperCase().includes(nameUpper)) {
-      // data.name.yoUpperCase() == nameUpper
       const places = getPlacesByService(data.serviceId);
       const unique = [...new Set(places)];
       unique.map(item => {

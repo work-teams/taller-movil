@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight, Pressable } from "react-native";
 import styles from "./styles";
 import MenuImage from "../../components/MenuImage/MenuImage";
-import { getCategoryName, getPlacesByPlaceName, getPlacesByCategoryName, getPlacesByServiceName } from "../../data/MockDataAPI";
+import { getCategoryName, getPlacesByPlaceName, getPlacesByCategoryName, getPlacesByServiceName } from "../../data/handleFirebase";
 import { TextInput } from "react-native-gesture-handler";
 
 export default function SearchScreen(props) {

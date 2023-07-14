@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight } from "react-native";
 import styles from "./styles";
 import { categories } from "../../data/dataArrays";
-import { getNumberOfPlaces } from "../../data/MockDataAPI";
+import { getNumberOfPlaces } from "../../data/handleFirebase";
 import MenuImage from "../../components/MenuImage/MenuImage";
 
 export default function CategoriesScreen(props) {

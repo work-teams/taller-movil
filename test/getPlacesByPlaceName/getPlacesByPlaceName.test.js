@@ -1,4 +1,4 @@
-import { getPlacesByPlaceName } from '../../src/data/MockDataAPI';
+import { getPlacesByPlaceName } from '../../src/data/handleFirebase';
 
 describe('getPlacesByPlaceName', () => {
     // positive test cases
