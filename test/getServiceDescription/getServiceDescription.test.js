@@ -4,7 +4,8 @@ describe('getServiceDescription', () => {
     const services = [
         { serviceId: 0, description: 'Empresa de transporte terrestre interprovinsional' },
         { serviceId: 1, description: 'Aerolínea a nivel nacional' },
-        { serviceId: 2, description: 'Red de hoteles a nivel nacional' }
+        { serviceId: 2, description: 'Red de hoteles a nivel nacional' },
+        { serviceId: 8, description: ''}
     ];
 
     // positive test cases
@@ -37,6 +38,11 @@ describe('getServiceDescription', () => {
     //test para cuando se pasa un serviceId como una cadena en lugar de un numero
     test('should return undefined when the serviceId is a string', () => {
         expect(getServiceDescription('15', services)).toBeUndefined();
+    });
+
+    //test para verificar cunado el servicio no tiene una descripcion
+    test('should return undefined when the service does not have a description', () => {
+        expect(getServiceDescription(8, services)).toBeUndefined();
     });
 
 });
