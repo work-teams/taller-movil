@@ -1,7 +1,6 @@
 //formulario de registro de datos
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, TextInput } from 'react-native';
-import { handleRegister } from './handleRegister'
 import styles from '../../../src/screens/Login/styles';
 
 export default function RegisterForm() {
