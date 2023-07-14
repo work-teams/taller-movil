@@ -18,4 +18,10 @@ describe('getServiceDescription', () => {
     test('should return undefined when given an invalid serviceID', () => {
         expect(getServiceDescription(3, services)).toBeUndefined();
     });
+
+    //test para verificar el comportamiento cuando se pasa un valor negativo
+    test('should return undefined when given a negative serviceID', () => {
+        expect(getServiceDescription(-1, services)).toBeUndefined();
+    });
+
 });
