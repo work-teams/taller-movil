@@ -26,6 +26,8 @@ export default function RegisterForm() {
           placeholder="Ingrese su nombre de usuario"
           onChange={(e) => onChange(e, "email")}
           keyboardType='email-address'
+          errorEmail={setErrorEmail}
+          defaultValue={formData.email}
         />
       </View>
 
