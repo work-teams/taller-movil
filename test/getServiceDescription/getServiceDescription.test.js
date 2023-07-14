@@ -5,6 +5,7 @@ describe('getServiceDescription', () => {
         { serviceId: 0, description: 'Empresa de transporte terrestre interprovinsional' },
         { serviceId: 1, description: 'Aerolínea a nivel nacional' },
         { serviceId: 2, description: 'Red de hoteles a nivel nacional' },
+        { serviceId: 3},
         { serviceId: 8, description: ''}
     ];
 
