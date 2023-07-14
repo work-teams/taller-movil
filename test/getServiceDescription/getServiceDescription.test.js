@@ -34,4 +34,9 @@ describe('getServiceDescription', () => {
         expect(getServiceDescription(5, [])).toBeUndefined();
     });
 
+    //test para cuando se pasa un serviceId como una cadena en lugar de un numero
+    test('should return undefined when the serviceId is a string', () => {
+        expect(getServiceDescription('15', services)).toBeUndefined();
+    });
+
 });
