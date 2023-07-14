@@ -55,7 +55,6 @@ export function getCategoryName(categoryId) {
   return name;
 }
 
-
 export function getPlaces(categoryId) {
   const placesArray = [];
   places.map(data => {
@@ -89,7 +88,6 @@ export function getNumberOfPlaces(categoryId) {
   });
   return count;
 }
-
 
 export function getAllServices(idArray) {
   const servicesArray = [];
