@@ -24,4 +24,9 @@ describe('getServiceDescription', () => {
         expect(getServiceDescription(-1, services)).toBeUndefined();
     });
 
+    //test para verificar el comportamiento cuando no se proporciona ningun valor para services
+    test('should return undefined when no serviceID is provided', () => {
+        expect(getServiceDescription(undefined, services)).toBeUndefined();
+    });     
+
 });
