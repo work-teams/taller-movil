@@ -29,4 +29,9 @@ describe('getServiceDescription', () => {
         expect(getServiceDescription(undefined, services)).toBeUndefined();
     });     
 
+    //test para cuando el comportamiento la lista de servicios este vacia
+    test('should return undefined when the list of services is empty', () => {
+        expect(getServiceDescription(5, [])).toBeUndefined();
+    });
+
 });
