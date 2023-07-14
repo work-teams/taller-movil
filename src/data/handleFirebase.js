@@ -13,24 +13,30 @@ export async function getCategoryById(categoryId) {
   return null;
 }
 
-export function getServiceName(serviceId) {
-  let name;
-  services.map(data => {
-    if (data.serviceId == serviceId) {
-      name = data.name;
-    }
-  });
-  return name;
+export async function getServiceName(serviceId) {
+  const db = firebase.firestore();
+  const serviceRef = db.collection('services').doc(serviceId);
+  const serviceSnapshot = await serviceRef.get();
+
+  if (serviceSnapshot.exists) {
+    const serviceData = serviceSnapshot.data();
+    return serviceData.name;
+  }
+
+  return null;
 }
 
-export function getServiceUrl(serviceId) {
-  let url;
-  services.map(data => {
-    if (data.serviceId == serviceId) {
-      url = data.photo_url;
-    }
-  });
-  return url;
+export async function getServiceUrl(serviceId) {
+  const db = firebase.firestore();
+  const serviceRef = db.collection('services').doc(serviceId);
+  const serviceSnapshot = await serviceRef.get();
+
+  if (serviceSnapshot.exists) {
+    const serviceData = serviceSnapshot.data();
+    return serviceData.photo_url;
+  }
+
+  return null;
 }
 
 // * * * * * * * * * * * * * * * * * * * *
@@ -142,4 +148,39 @@ export function getPlacesByPlaceName(placeName) {
     }
   });
   return placesArray;
+}
+
+// * * * * * * * * * * * * * * * * * * * *
+// functions for users
+export async function findUserByUsernameAndPassword(username, password) {
+  const db = firebase.firestore();
+  const usersRef = db.collection('users');
+  const querySnapshot = await usersRef
+    .where('username', '==', username)
+    .where('password', '==', password)
+    .get();
+
+  if (!querySnapshot.empty) {
+    const userDoc = querySnapshot.docs[0];
+    const userData = userDoc.data();
+    return userData;
+  }
+
+  return null;
+}
+
+export async function insertUser(username, password) {
+  const db = firebase.firestore();
+  const usersRef = db.collection('users');
+
+  try {
+    const newUserRef = await usersRef.add({
+      username: username,
+      password: password
+    });
+
+    return newUserRef.id;
+  } catch (error) {
+    return null;
+  }
 }

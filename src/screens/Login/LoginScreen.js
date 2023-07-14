@@ -1,26 +1,49 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
-import { handleLogin } from './handleLogin';
+import { useNavigation } from '@react-navigation/native';
+import { findUserByUsernameAndPassword } from '../../data/handleFirebase';
 import styles from './styles';
-import {useNavigation} from '@react-navigation/native';
 
 export default LoginScreen = (props) => {
   const { navigation } = props;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-	useLayoutEffect(() => {
+  useLayoutEffect(() => {
     navigation.setOptions({
-			headerTitle: () => (
-        <View/>
+      headerTitle: () => (
+        <View />
       ),
     });
   });
 
+  const handleLogin = async () => {
+    const user = findUserByUsernameAndPassword(username, password);
+
+    if (user) {
+      navigateToInicio(navigation);
+      showSuccessAlert();
+    } else {
+      showErrorAlert();
+    }
+  }
+
+  function navigateToInicio(navigation) {
+    navigation.navigate("Inicio");
+  }
+
+  function showSuccessAlert() {
+    Alert.alert('Inicio de sesión exitoso');
+  }
+
+  function showErrorAlert() {
+    Alert.alert('Error', 'Nombre de usuario o contraseña incorrectos');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Iniciar sesión</Text>
-      
+
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>Nombre de usuario</Text>
         <TextInput
@@ -34,7 +57,7 @@ export default LoginScreen = (props) => {
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>Contraseña</Text>
         <TextInput
-					style={styles.input}
+          style={styles.input}
           placeholder="Ingrese su contraseña"
           value={password}
           onChangeText={setPassword}
@@ -42,11 +65,11 @@ export default LoginScreen = (props) => {
         />
       </View>
 
-      <CreateAccount/>
+      <CreateAccount />
 
       <TouchableOpacity
-				style={styles.button}
-        onPress={() => handleLogin(navigation, username, password)}
+        style={styles.button}
+        onPress={handleLogin}
       >
         <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
@@ -54,15 +77,15 @@ export default LoginScreen = (props) => {
   );
 };
 
-function CreateAccount(props){
+function CreateAccount(props) {
   const navigation = useNavigation()
-  return(
+  return (
     <Text style={styles.textAcount}>
       ¿Aun no tienes tu cuenta?{' '}
-      <Text 
+      <Text
         style={styles.buttonRegister}
-         onPress={()=>navigation.navigate("register") }>
-          Regístrarte
+        onPress={() => navigation.navigate("register")}>
+        Regístrarte
       </Text>
 
     </Text>
