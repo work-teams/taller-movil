@@ -23,5 +23,10 @@ describe('getCategoryName', () => {
     test('should return undefined for negative category ID', () => {
         expect(getCategoryName(-1, categories)).toBeUndefined();
     });
-    
+
+    //test para verificar el comportamiento cuando no se proporciona ningun valor a categoriId
+    test('should return undefined for no category ID', () => {
+        expect(getCategoryName(undefined, categories)).toBeUndefined();
+    });
+
 });
