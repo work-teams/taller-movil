@@ -9,20 +9,20 @@ jest.mock('../../src/data/firebase', () => {
         collection: jest.fn(() => ({
           doc: jest.fn((id) => ({
             get: jest.fn(() => {
-              if (id === 0) { // Caso donde se obtienen datos correctos
-                return {
+              if (id === 0) { // Caso donde se obtienen los datos correctos de una categoría existente
+                return Promise.resolve({
                   exists: true,
                   data: jest.fn(() => ({
                     id: 0,
                     name: 'Costa',
                     photo_url: 'https://example.com/category-image.jpg'
                   }))
-                };
-              } else { // Caso donde se obtiene null
-                return {
+                });
+              } else { // Caso donde se obtiene null para una categoría inexistente
+                return Promise.resolve({
                   exists: false,
                   data: jest.fn()
-                };
+                });
               }
             })
           }))
