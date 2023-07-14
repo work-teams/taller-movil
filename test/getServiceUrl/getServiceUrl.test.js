@@ -1,4 +1,4 @@
-import { getServiceUrl } from '../../src/data/MockDataAPI';
+import { getServiceUrl } from '../../src/data/handleFirebase';
 
 describe('getServiceUrl', () => {
     const services = [

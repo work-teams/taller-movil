@@ -1,4 +1,4 @@
-import { handleLogin } from './handleLogin';
+import { handleLogin } from '../../src/screens/Login/handleLogin';
 import { Alert } from 'react-native';
 
 describe('handleLogin', () => {

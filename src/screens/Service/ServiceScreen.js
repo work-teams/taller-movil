@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, ScrollView, Text, View, Image, TouchableHighlight, TouchableOpacity, Linking } from "react-native";
 import styles from "./styles";
-import { getServiceUrl, getPlacesByService, getCategoryName, getServiceDescription } from "../../data/MockDataAPI";
+import { getServiceUrl, getPlacesByService, getCategoryName, getServiceDescription } from "../../data/handleFirebase";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function ServiceScreen(props) {

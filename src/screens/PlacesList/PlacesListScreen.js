@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { FlatList, Text, View, TouchableHighlight, Image } from "react-native";
 import styles from "./styles";
-import { getPlaces, getCategoryName } from "../../data/MockDataAPI";
+import { getPlaces, getCategoryName } from "../../data/handleFirebase";
 
 export default function PlacesListScreen(props) {
   const { navigation, route } = props;

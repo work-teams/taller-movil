@@ -1,4 +1,4 @@
-import { getPlaces } from '../../src/data/MockDataAPI';
+import { getPlaces } from '../../src/data/handleFirebase';
 import { places } from '../../src/data/dataArrays';
 
 describe('getPlaces', () => {

@@ -13,7 +13,7 @@ import {
   getServiceName,
   getCategoryName,
   getCategoryById,
-} from "../../data/MockDataAPI";
+} from "../../data/handleFirebase";
 import BackButton from "../../components/BackButton/BackButton";
 import ViewServicesButton from "../../components/ViewServicesButton/ViewServicesButton";
 

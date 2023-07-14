@@ -1,30 +1,30 @@
 //formulario de registro de datos
 import React, { useState } from 'react';
-import styles from '../../../src/screens/Login/styles';
-import { StyleSheet, TouchableOpacity,Text, View,TextInput } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, TextInput } from 'react-native';
 import { handleRegister } from './handleRegister'
+import styles from '../../../src/screens/Login/styles';
 
 export default function RegisterForm() {
-    const [formData,setFormData] = useState(defaultFormValues)
-    
-    const defaultFormValues=() => {
-        return {email : "",password : "",confirm:""}
-    };
+  const [formData, setFormData] = useState(defaultFormValues)
 
-    const onChange = (e,type) => {
-        setFormData({...formData,[type]:e.nativeEvent.text})
-    }
-  
-    return (
+  const defaultFormValues = () => {
+    return { email: "", password: "", confirm: "" }
+  };
+
+  const onChange = (e, type) => {
+    setFormData({ ...formData, [type]: e.nativeEvent.text })
+  }
+
+  return (
     <View>
-        <Text style={styles.title}>  </Text>
-      
+      <Text style={styles.title}>  </Text>
+
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>Nombre de usuario</Text>
         <TextInput
           style={styles.input}
           placeholder="Ingrese su nombre de usuario"
-          onChange={(e)=> onChange(e,"email")}
+          onChange={(e) => onChange(e, "email")}
           keyboardType='email-address'
         />
       </View>
@@ -34,9 +34,9 @@ export default function RegisterForm() {
         <TextInput style={styles.input}
           placeholder="Ingrese su contraseña"
           secureTextEntry
-          onChange={(e)=> onChange(e,"password")}
-          
-          
+          onChange={(e) => onChange(e, "password")}
+
+
         />
       </View>
       <View style={styles.inputContainer}>
@@ -44,16 +44,16 @@ export default function RegisterForm() {
         <TextInput style={styles.input}
           placeholder="Ingrese su contraseña"
           secureTextEntry
-          onChange={(e)=> onChange(e,"confirm")}
+          onChange={(e) => onChange(e, "confirm")}
         />
       </View>
 
       <TouchableOpacity
-		style={styles.button}
+        style={styles.button}
         onPress={() => handleRegister(email, password)} //console.log(formData)
       >
         <Text style={styles.buttonText}>Registrar Nuevo Usuario</Text>
-        
+
       </TouchableOpacity>
 
     </View>

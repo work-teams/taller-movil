@@ -1,4 +1,4 @@
-import { getNumberOfPlaces } from '../../src/data/MockDataAPI';
+import { getNumberOfPlaces } from '../../src/data/handleFirebase';
 
 describe('getNumberOfPlaces function', () => {
     // positive test cases
