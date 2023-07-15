@@ -6,7 +6,7 @@ import CategoriesScreen from '../screens/Categories/CategoriesScreen';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import HomeScreen from '../screens/Home/HomeScreen';
 import LoginScreen from '../screens/Login/LoginScreen';
-import Register from '../screens/Login/Register';
+import Register from '../screens/Register/Register';
 import PlaceScreen from '../screens/Place/PlaceScreen';
 import PlacesListScreen from '../screens/PlacesList/PlacesListScreen';
 import ServiceScreen from '../screens/Service/ServiceScreen';
