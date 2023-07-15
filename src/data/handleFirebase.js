@@ -1,4 +1,3 @@
-import { places, categories, services } from './dataArrays';
 import { firebase } from './firebase'
 
 export async function getCategoryById(categoryId) {
@@ -41,34 +40,40 @@ export async function getServiceUrl(serviceId) {
 
 // * * * * * * * * * * * * * * * * * * * *
 
-export function getServiceDescription(serviceId) {
-  let description;
-  services.map(data => {
-    if (data.serviceId == serviceId) {
-      description = data.description;
-    }
-  });
-  return description;
+export async function getServiceDescription(serviceId) {
+  const db = firebase.firestore();
+  const serviceDoc = await db.collection('services').doc(serviceId).get();
+
+  if (serviceDoc.exists) {
+    const serviceData = serviceDoc.data();
+    return serviceData.description;
+  }
+
+  return null;
 }
 
-export function getCategoryName(categoryId) {
-  let name;
-  categories.map(data => {
-    if (data.id == categoryId) {
-      name = data.name;
-    }
-  });
-  return name;
+export async function getCategoryName(categoryId) {
+  const db = firebase.firestore();
+  const categoryDoc = await db.collection('category').doc(categoryId).get();
+
+  if (categoryDoc.exists) {
+    const categoryData = categoryDoc.data();
+    return categoryData.name;
+  }
+
+  return null;
 }
 
-export function getPlaces(categoryId) {
-  const placesArray = [];
-  places.map(data => {
-    if (data.categoryId == categoryId) {
-      placesArray.push(data);
-    }
-  });
-  return placesArray;
+export async function getPlaces(categoryId) {
+  const db = firebase.firestore();
+  const placeDoc = await db.collection('places').doc(categoryId).get();
+
+  if (placeDoc.exists) {
+    const placeData = placeDoc.data();
+    return placeData;
+  }
+
+  return null;
 }
 
 // * * * * * * * * * * * * * * * * * * * *

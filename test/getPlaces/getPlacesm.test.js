@@ -7,48 +7,66 @@ jest.mock('../../src/data/firebase', () => {
     firebase: {
       firestore: jest.fn(() => ({
         collection: jest.fn(() => ({
-          get: jest.fn(() => Promise.resolve({
-            forEach: jest.fn((callback) => {
-              const data1 = { placeId: 0, categoryId: 0 };
-              const data2 = { placeId: 1, categoryId: 1 };
-              const data3 = { placeId: 2, categoryId: 0 };
-              callback({ data: jest.fn(() => data1) });
-              callback({ data: jest.fn(() => data2) });
-              callback({ data: jest.fn(() => data3) });
-            }),
-          })),
-        })),
-      })),
-    },
+          doc: jest.fn((categoryId) => ({
+            get: jest.fn(() => {
+              if (categoryId === '0') { // Caso positivo
+                return Promise.resolve({
+                  exists: true,
+                  data: () => ({
+                    placeId: '0',
+                    categoryId: '0',
+                    title: 'Ciudadela de Caral',
+                    photo_url: 'https://historia.nationalgeographic.com.es/medio/2019/10/24/edificio-piramidal-visto-desde-un-dronse-conservan-seis-piramides-cada-una-de-ellas-con-una-escalera-central-orientada-hacia-determinadas-estrellas_27a7675b_1280x959.jpg',
+                    photosArray: [
+                      'https://historia.nationalgeographic.com.es/medio/2019/10/24/edificio-piramidal-visto-desde-un-dronse-conservan-seis-piramides-cada-una-de-ellas-con-una-escalera-central-orientada-hacia-determinadas-estrellas_27a7675b_1280x959.jpg',
+                      'https://catedraunesco.usmp.edu.pe/wp-content/uploads/2018/08/4-caral.jpg'
+                    ],
+                    location: 'Lima',
+                    services: [
+                      [0, 'Buses'],
+                      [1, 'Aerolíneas'],
+                      [2, 'Hoteles'],
+                    ],
+                    description: '-- La Ciudad Sagrada de Caral representa el origen de la cultura andina y es la civilización más antigua de América, con más de 5.000 años de historia donde la UNESCO la declaró como Patrimonio Cultural de la Humanidad, el complejo está formado por varias construcciones, entre las que resaltan seis pirámides y sus plazas circulares. Por los instrumentos y restos encontrados se conoce que sus habitantes se dedicaron principalmente a la pesca y agricultura.\n\n -- Se ubica a 206 km al noroeste de Lima (4 horas en auto aproximadamente).'
+                  })
+                });
+              } else { // Caso negativo
+                return Promise.resolve({
+                  exists: false
+                });
+              }
+            })
+          }))
+        }))
+      }))
+    }
   };
 });
 
 describe('getPlaces', () => {
-  const places = [
-    { placeId: 0, categoryId: 0 },
-    { placeId: 1, categoryId: 1 },
-    { placeId: 2, categoryId: 0 },
-  ];
-
-  // positive test cases
-  test('should return an array of places with the given categoryId', async () => {
-    const input = [0, 1, 2];
-    const expectedOutput = [
-      places.filter((place) => place.categoryId === 0),
-      places.filter((place) => place.categoryId === 1),
-      places.filter((place) => place.categoryId === 2),
-    ];
-
-    input.forEach(async (categoryId, index) => {
-      const places = await getPlaces(categoryId);
-      expect(places).toEqual(expectedOutput[index]);
+  it('debe devolver los datos del lugar cuando el lugar existe en la base de datos', async () => {
+    const placeData = await getPlaces('0');
+    expect(placeData).toEqual({
+      placeId: '0',
+      categoryId: '0',
+      title: 'Ciudadela de Caral',
+      photo_url: 'https://historia.nationalgeographic.com.es/medio/2019/10/24/edificio-piramidal-visto-desde-un-dronse-conservan-seis-piramides-cada-una-de-ellas-con-una-escalera-central-orientada-hacia-determinadas-estrellas_27a7675b_1280x959.jpg',
+      photosArray: [
+        'https://historia.nationalgeographic.com.es/medio/2019/10/24/edificio-piramidal-visto-desde-un-dronse-conservan-seis-piramides-cada-una-de-ellas-con-una-escalera-central-orientada-hacia-determinadas-estrellas_27a7675b_1280x959.jpg',
+        'https://catedraunesco.usmp.edu.pe/wp-content/uploads/2018/08/4-caral.jpg'
+      ],
+      location: 'Lima',
+      services: [
+        [0, 'Buses'],
+        [1, 'Aerolíneas'],
+        [2, 'Hoteles'],
+      ],
+      description: '-- La Ciudad Sagrada de Caral representa el origen de la cultura andina y es la civilización más antigua de América, con más de 5.000 años de historia donde la UNESCO la declaró como Patrimonio Cultural de la Humanidad, el complejo está formado por varias construcciones, entre las que resaltan seis pirámides y sus plazas circulares. Por los instrumentos y restos encontrados se conoce que sus habitantes se dedicaron principalmente a la pesca y agricultura.\n\n -- Se ubica a 206 km al noroeste de Lima (4 horas en auto aproximadamente).'
     });
   });
 
-  // negative test cases
-  test('should return an empty array when given an invalid categoryId', async () => {
-    const invalidCategoryId = 999;
-    const places = await getPlaces(invalidCategoryId);
-    expect(places).toEqual([]);
+  it('debe devolver null cuando el lugar no existe en la base de datos', async () => {
+    const placeData = await getPlaces('1');
+    expect(placeData).toBeNull();
   });
 });

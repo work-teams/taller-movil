@@ -1,4 +1,4 @@
-import {getCategoryName} from '../../src/data/handleFirebase';
+import { getCategoryName } from '../../src/data/handleFirebase';
 import { firebase } from '../../src/data/firebase';
 
 jest.mock('../../src/data/firebase', () => {
@@ -7,19 +7,20 @@ jest.mock('../../src/data/firebase', () => {
         firebase: {
             firestore: jest.fn(() => ({
                 collection: jest.fn(() => ({
-                    doc: jest.fn((id) => ({
+                    doc: jest.fn((categoryId) => ({
                         get: jest.fn(() => {
-                            if (id === 0) { // Caso donde se obtienen los datos correctos de un servicio existente
+                            if (categoryId === '0') { // Caso positivo
                                 return Promise.resolve({
                                     exists: true,
-                                    data: jest.fn(() => ({
-                                        name: 'Costa'
-                                    }))
+                                    data: () => ({
+                                        id: '0',
+                                        name: 'Costa',
+                                        photo_url: 'https://img.womondoo.com/insecure/size:1920:::/plain/https://media.womondoo.com/media/images/Playa_Roja.max-1350x1080.format-webp-lossless_bpDjGxK.webp'
+                                    })
                                 });
-                            } else { // Caso donde se obtiene null para un servicio inexistente
+                            } else { // Caso negativo
                                 return Promise.resolve({
-                                    exists: false,
-                                    data: jest.fn()
+                                    exists: false
                                 });
                             }
                         })
@@ -30,16 +31,14 @@ jest.mock('../../src/data/firebase', () => {
     };
 });
 
-//test para devolver el nombre del servicio cuando existe en la base de datos
 describe('getCategoryName', () => {
-    it('debe devolver el nombre del servicio cuando existe en la base de datos', async () => {
-        const categoryName = await getCategoryName(0);
+    it('debe devolver el nombre de la categoría cuando la categoría existe en la base de datos', async () => {
+        const categoryName = await getCategoryName('0');
         expect(categoryName).toBe('Costa');
     });
 
-//test para devolver indefinido cuando el servicio no existe en la base de datos
-    it('debe devolver indefinido cuando el servicio no existe en la base de datos', async () => {
-        const categoryName = await getCategoryName(3);
-        expect(categoryName).toBeUndefined();
+    it('debe devolver null cuando la categoría no existe en la base de datos', async () => {
+        const categoryName = await getCategoryName('1');
+        expect(categoryName).toBeNull();
     });
 });
