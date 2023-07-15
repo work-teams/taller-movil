@@ -53,14 +53,16 @@ export async function getServiceDescription(serviceId) {
   return null;
 }
 
-export function getCategoryName(categoryId) {
-  let name;
-  categories.map(data => {
-    if (data.id == categoryId) {
-      name = data.name;
-    }
-  });
-  return name;
+export async function getCategoryName(categoryId) {
+  const db = firebase.firestore();
+  const categoryDoc = await db.collection('category').doc(categoryId).get();
+
+  if (categoryDoc.exists) {
+    const categoryData = categoryDoc.data();
+    return categoryData.name;
+  }
+
+  return null;
 }
 
 export function getPlaces(categoryId) {
