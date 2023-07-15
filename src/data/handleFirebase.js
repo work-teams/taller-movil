@@ -1,4 +1,3 @@
-//import { places, categories, services } from './dataArrays';
 import { firebase } from './firebase'
 
 export async function getCategoryById(categoryId) {
@@ -65,14 +64,16 @@ export async function getCategoryName(categoryId) {
   return null;
 }
 
-export function getPlaces(categoryId) {
-  const placesArray = [];
-  places.map(data => {
-    if (data.categoryId == categoryId) {
-      placesArray.push(data);
-    }
-  });
-  return placesArray;
+export async function getPlaces(categoryId) {
+  const db = firebase.firestore();
+  const placeDoc = await db.collection('places').doc(categoryId).get();
+
+  if (placeDoc.exists) {
+    const placeData = placeDoc.data();
+    return placeData;
+  }
+
+  return null;
 }
 
 // * * * * * * * * * * * * * * * * * * * *
