@@ -3,7 +3,7 @@ import { FlatList, Text, View, TouchableHighlight, Image } from "react-native";
 import styles from "./styles";
 import { places } from "../../data/dataArrays";
 import MenuImage from "../../components/MenuImage/MenuImage";
-import { getCategoryName } from "../../data/MockDataAPI";
+import { getCategoryName } from "../../data/handleFirebase";
 
 export default function HomeScreen(props) {
   const { navigation } = props;

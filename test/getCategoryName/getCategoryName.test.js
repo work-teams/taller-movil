@@ -1,4 +1,4 @@
-import { getCategoryName } from '../../src/data/MockDataAPI';
+import { getCategoryName } from '../../src/data/handleFirebase';
 
 describe('getCategoryName', () => {
     const categories = [

@@ -1,4 +1,4 @@
-import { getServiceName } from '../../src/data/handleFirebase';
+import {getCategoryName} from '../../src/data/handleFirebase';
 import { firebase } from '../../src/data/firebase';
 
 jest.mock('../../src/data/firebase', () => {
@@ -13,7 +13,7 @@ jest.mock('../../src/data/firebase', () => {
                                 return Promise.resolve({
                                     exists: true,
                                     data: jest.fn(() => ({
-                                        name: 'Cruz del Sur'
+                                        name: 'Costa'
                                     }))
                                 });
                             } else { // Caso donde se obtiene null para un servicio inexistente
@@ -30,14 +30,16 @@ jest.mock('../../src/data/firebase', () => {
     };
 });
 
-describe('getServiceName', () => {
+//test para devolver el nombre del servicio cuando existe en la base de datos
+describe('getCategoryName', () => {
     it('debe devolver el nombre del servicio cuando existe en la base de datos', async () => {
-        const serviceName = await getServiceName(0);
-        expect(serviceName).toBe('Cruz del Sur');
+        const categoryName = await getCategoryName(0);
+        expect(categoryName).toBe('Costa');
     });
 
-    it('debe devolver null cuando el servicio no existe en la base de datos', async () => {
-        const serviceName = await getServiceName(1);
-        expect(serviceName).toBeNull();
+//test para devolver indefinido cuando el servicio no existe en la base de datos
+    it('debe devolver indefinido cuando el servicio no existe en la base de datos', async () => {
+        const categoryName = await getCategoryName(3);
+        expect(categoryName).toBeUndefined();
     });
 });
