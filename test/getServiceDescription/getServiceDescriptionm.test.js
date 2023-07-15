@@ -7,19 +7,21 @@ jest.mock('../../src/data/firebase', () => {
         firebase: {
             firestore: jest.fn(() => ({
                 collection: jest.fn(() => ({
-                    doc: jest.fn((id) => ({
+                    doc: jest.fn((serviceId) => ({
                         get: jest.fn(() => {
-                            if (id === 0) { // Caso donde se obtienen los datos correctos de un servicio existente
+                            if (serviceId === '0') { // Caso positivo
                                 return Promise.resolve({
                                     exists: true,
-                                    data: jest.fn(() => ({
-                                        description: 'Empresa de transporte terrestre interporvinsional'
-                                    }))
+                                    data: () => ({
+                                        serviceId: '0',
+                                        name: 'Cruz del Sur',
+                                        photo_url: 'https://images.ctfassets.net/1nvpgv2kdfc0/1kqJ26hOIgs5ltRX21DURK/8764ce9a5c4f943c1006795ea2dac0bf/Cruz_del_Sur_bus.png',
+                                        description: 'Empresa de transporte terrestre interprovinsional'
+                                    })
                                 });
-                            } else { // Caso donde se obtiene null para un servicio inexistente
+                            } else { // Caso negativo
                                 return Promise.resolve({
-                                    exists: false,
-                                    data: jest.fn()
+                                    exists: false
                                 });
                             }
                         })
@@ -31,12 +33,13 @@ jest.mock('../../src/data/firebase', () => {
 });
 
 describe('getServiceDescription', () => {
-    it('debe devolver la descripcion del servicio cuando existe en la base de datos', async () => {
-        const serviceDescription = await getServiceDescription(0);
+    it('debe devolver la descripción del servicio cuando el servicio existe en la base de datos', async () => {
+        const serviceDescription = await getServiceDescription('0');
         expect(serviceDescription).toBe('Empresa de transporte terrestre interprovinsional');
     });
+
     it('debe devolver null cuando el servicio no existe en la base de datos', async () => {
-        const serviceDescription = await getServiceDescription(3);
-        expect(serviceDescription).toBeUndefined();
+        const serviceDescription = await getServiceDescription('1');
+        expect(serviceDescription).toBeNull();
     });
 });

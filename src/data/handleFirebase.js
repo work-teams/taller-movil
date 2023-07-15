@@ -1,4 +1,4 @@
-import { places, categories, services } from './dataArrays';
+//import { places, categories, services } from './dataArrays';
 import { firebase } from './firebase'
 
 export async function getCategoryById(categoryId) {
@@ -41,14 +41,16 @@ export async function getServiceUrl(serviceId) {
 
 // * * * * * * * * * * * * * * * * * * * *
 
-export function getServiceDescription(serviceId) {
-  let description;
-  services.map(data => {
-    if (data.serviceId == serviceId) {
-      description = data.description;
-    }
-  });
-  return description;
+export async function getServiceDescription(serviceId) {
+  const db = firebase.firestore();
+  const serviceDoc = await db.collection('services').doc(serviceId).get();
+
+  if (serviceDoc.exists) {
+    const serviceData = serviceDoc.data();
+    return serviceData.description;
+  }
+
+  return null;
 }
 
 export function getCategoryName(categoryId) {
