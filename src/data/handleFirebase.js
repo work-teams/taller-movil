@@ -183,9 +183,9 @@ export async function getPlacesByPlaceName(placeName) {
   const placesArray = [];
 
   const db = firebase.firestore();
-  const placeSnapshot = await db.collection('place').get();
+  const placesSnapshot = await db.collection('places').get();
 
-  placeSnapshot.forEach(doc => {
+  placesSnapshot.forEach(doc => {
     const data = doc.data();
     if (data.title.toUpperCase().includes(nameUpper)) {
       placesArray.push(data);
