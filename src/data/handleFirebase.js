@@ -90,7 +90,7 @@ export async function getPlacesByService(serviceId) {
       }
     });
   });
-  
+
   return placesArray;
 }
 
@@ -132,29 +132,45 @@ export async function getAllServices(idArray) {
 
 // * * * * * * * * * * * * * * * * * * * *
 // functions for search
-export function getPlacesByServiceName(serviceName) {
+export async function getPlacesByServiceName(serviceName) {
+
+  const db = firebase.firestore();
+  const servicesSnapshot = await db.collection('services').get();
+
   const nameUpper = serviceName.toUpperCase();
   const placesArray = [];
-  services.map(data => {
+
+  servicesSnapshot.forEach((doc) => {
+    const data = doc.data();
     if (data.name.toUpperCase().includes(nameUpper)) {
-      const places = getPlacesByService(data.serviceId);
-      const unique = [...new Set(places)];
-      unique.map(item => {
-        placesArray.push(item);
-      });
+      getPlacesByService(data.serviceId).then((places)=>{
+        const unique = [...new Set(places)];
+        unique.forEach(item => {
+          placesArray.push(item);
+        });
+      })
+      
     }
-  });
+
+  })
+
   const uniqueArray = [...new Set(placesArray)];
   return uniqueArray;
+
 }
 
-export function getPlacesByCategoryName(categoryName) {
+export async function getPlacesByCategoryName(categoryName) {
   const nameUpper = categoryName.toUpperCase();
   const placesArray = [];
-  categories.map(data => {
+
+  const db = firebase.firestore();
+  const categoriesSnapshot = await db.collection('categories').get();
+
+  categoriesSnapshot.forEach((doc) => {
+    const data = doc.data();
     if (data.name.toUpperCase().includes(nameUpper)) {
       const places = getPlaces(data.id); // return a vector of places
-      places.map(item => {
+      places.forEach(item => {
         placesArray.push(item);
       });
     }
@@ -162,10 +178,15 @@ export function getPlacesByCategoryName(categoryName) {
   return placesArray;
 }
 
-export function getPlacesByPlaceName(placeName) {
+export async function getPlacesByPlaceName(placeName) {
   const nameUpper = placeName.toUpperCase();
   const placesArray = [];
-  places.map(data => {
+
+  const db = firebase.firestore();
+  const placeSnapshot = await db.collection('place').get();
+
+  placeSnapshot.forEach(doc => {
+    const data = doc.data();
     if (data.title.toUpperCase().includes(nameUpper)) {
       placesArray.push(data);
     }

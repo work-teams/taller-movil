@@ -29,7 +29,7 @@ export default function SearchScreen(props) {
             value={value}
           />
           <Pressable onPress={() => handleSearch("")}>
-          <Image style={styles.searchIcon} source={require("../../../assets/icons/close.png")} />
+            <Image style={styles.searchIcon} source={require("../../../assets/icons/close.png")} />
           </Pressable>
         </View>
       ),
@@ -37,21 +37,25 @@ export default function SearchScreen(props) {
     });
   }, [value]);
 
-  useEffect(() => {}, [value]);
+  useEffect(() => { }, [value]);
 
   const handleSearch = (text) => {
     setValue(text);
-    var placeArray1 = getPlacesByPlaceName(text);
-    var placeArray2 = getPlacesByCategoryName(text);
-    var placeArray3 = getPlacesByServiceName(text);
-    var aux = placeArray1.concat(placeArray2);
-    var placeArray = [...new Set(aux)];
+    var placeArray1 = [];
+    var placeArray2 = [];
 
-    if (text == "") {
-      setData([]);
-    } else {
-      setData(placeArray);
-    }
+    getPlacesByPlaceName(text).then((array) => {
+      placeArray1 = array;
+      getPlacesByCategoryName(text).then((array) => {
+        placeArray2 = array;
+        var aux = placeArray1.concat(placeArray2);
+        if (text == "") {
+          setData([]);
+        } else {
+          setData(aux);
+        }
+      })
+    })
   };
 
   const onPressPlace = (item) => {
