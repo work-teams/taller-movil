@@ -20,6 +20,25 @@ Una aplicación que ofrezca guías turísticas personalizadas, recomendaciones d
 - En la vista "CATEGORIA" se puede filtrar según la región del lugar (COSTA - SIERRA - SELVA).
 - En la vista "BUSQUEDA" se puede filtrar entre todos los lugares disponibles según plabras clave.
 
+## REFERENCIAS
+1. [Mock Documentación](https://jestjs.io/docs/mock-function-api)  
+![img](https://pbs.twimg.com/media/F1E_M_TWcAIPdZQ?format=jpg&name=small)
+
+1. [Mock Blog](https://developero.io/blog/jest-mock-module-function-class-promises-axios-y-mas)  
+![img](https://pbs.twimg.com/media/F1E9mnjWAAE_b5-?format=png&name=small)
+
+1. [Firebase Documentación](https://firebase.google.com/docs?hl=es-419)  
+![img](https://pbs.twimg.com/media/F1E-bUBXsAAjqH_?format=jpg&name=small)
+
+1. [Node.js Documentación](https://nodejs.org/en/docs)  
+![img](https://pbs.twimg.com/media/F1E_yzAWYAMpIKu?format=jpg&name=small)
+
+1. [Expo Documentación](https://docs.expo.dev/)  
+![img](https://pbs.twimg.com/media/F1E_4S7WAAAZNNr?format=jpg&name=small)
+
+1. [JavaScript Documentación](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
+![img](https://pbs.twimg.com/media/F1E_-JBWIAEr5TD?format=jpg&name=small)
+
 ## Wireframe / Mock Up
 Enlace al diseño de interfaz eleborado en Figma.
 [Ir a Figma/taller-movil](https://www.figma.com/file/owsfexMa8G1kch2isEiUOf/TALLER-M%C3%93VIL-%7C-MOCK-UPS-%28Copy%29?node-id=0%3A1&t=waRnUMvvV5F8Ox2E-1)
