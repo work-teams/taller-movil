@@ -10,6 +10,16 @@ Una aplicación que ofrezca guías turísticas personalizadas, recomendaciones d
 - Oscar Alberto Chumpitaz Peralta
 - Wiston Rikelme Pastor Moreno
 
+## MANUAL DE USO
+- Ingresar al aplicativo via "TUNNEL".
+- Registrar su nuevo usuario.
+- Ingresar al sistema con su usuario.
+- Navegar entre las diferentes vistas de los lugares turísticos ofrecidos en Perú.
+- Seleccionar un lugar para ver más detalles.
+- Seleccionar los servicios que se ofrecen.
+- En la vista "CATEGORIA" se puede filtrar según la región del lugar (COSTA - SIERRA - SELVA).
+- En la vista "BUSQUEDA" se puede filtrar entre todos los lugares disponibles según plabras clave.
+
 ## Wireframe / Mock Up
 Enlace al diseño de interfaz eleborado en Figma.
 [Ir a Figma/taller-movil](https://www.figma.com/file/owsfexMa8G1kch2isEiUOf/TALLER-M%C3%93VIL-%7C-MOCK-UPS-%28Copy%29?node-id=0%3A1&t=waRnUMvvV5F8Ox2E-1)
