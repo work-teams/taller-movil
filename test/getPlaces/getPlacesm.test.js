@@ -45,4 +45,10 @@ describe('getPlaces', () => {
     });
   });
 
+  // negative test cases
+  test('should return an empty array when given an invalid categoryId', async () => {
+    const invalidCategoryId = 999;
+    const places = await getPlaces(invalidCategoryId);
+    expect(places).toEqual([]);
+  });
 });
