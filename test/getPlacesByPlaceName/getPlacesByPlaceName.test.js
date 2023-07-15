@@ -60,7 +60,7 @@ describe('getPlacesByPlaceName', () => {
     // negative test cases
     it('debe devolver null cuando el servicio no existe en la base de datos', async () => {
         const placeError = 'Chichen Itza';
-        const placesByPlaceName = await getServiceName(placeError);
+        const placesByPlaceName = await getPlacesByPlaceName(placeError);
         expect(placesByPlaceName).toBeNull();
     });
 });
