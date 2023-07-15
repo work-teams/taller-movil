@@ -36,5 +36,10 @@ describe('getCategoryName', () => {
         const categoryName = await getCategoryName(0);
         expect(categoryName).toBe('Costa');
     });
-    
+
+//test para devolver indefinido cuando el servicio no existe en la base de datos
+    it('debe devolver indefinido cuando el servicio no existe en la base de datos', async () => {
+        const categoryName = await getCategoryName(3);
+        expect(categoryName).toBeUndefined();
+    });
 });
