@@ -73,37 +73,60 @@ export function getPlaces(categoryId) {
 
 // * * * * * * * * * * * * * * * * * * * *
 // modifica
-export function getPlacesByService(serviceId) {
+export async function getPlacesByService(serviceId) {
   const placesArray = [];
-  places.map(data => {
-    data.services.map(index => {
-      if (index[0] == serviceId) {
+
+  const db = firebase.firestore();
+  const placesSnapshot = await db.collection('places').get();
+
+  placesSnapshot.forEach((doc) => {
+    const data = doc.data();
+    const services = data.services;
+
+    services.forEach((service) => {
+      const serviceValues = Object.keys(service).map(Number);
+      if (serviceValues.includes(serviceId)) {
         placesArray.push(data);
       }
     });
   });
+  
   return placesArray;
 }
 
-export function getNumberOfPlaces(categoryId) {
+export async function getNumberOfPlaces(categoryId) {
+  const db = firebase.firestore();
+  const placesSnapshot = await db.collection('places').get();
+
   let count = 0;
-  places.map(data => {
-    if (data.categoryId == categoryId) {
+  placesSnapshot.forEach((doc) => {
+    const data = doc.data();
+    if (data.categoryId === categoryId) {
       count++;
     }
   });
+
   return count;
 }
 
-export function getAllServices(idArray) {
+export async function getAllServices(idArray) {
   const servicesArray = [];
-  idArray.map(index => {
-    services.map(data => {
-      if (data.serviceId == index[0]) {
-        servicesArray.push([data, index[1]]);
+
+  const db = firebase.firestore();
+  const servicesSnapshot = await db.collection('services').get();
+
+  idArray.forEach((index) => {
+    const serviceId = index[0];
+    const serviceName = index[1];
+
+    servicesSnapshot.forEach((doc) => {
+      const data = doc.data();
+      if (data.serviceId === serviceId) {
+        servicesArray.push([data, serviceName]);
       }
     });
   });
+
   return servicesArray;
 }
 
